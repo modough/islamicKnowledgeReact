@@ -1,8 +1,19 @@
-# React + Vite
+# Islamic + Knowledge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app allow you to read the Quran and Hadith all in one.
+Possibilities to select per ayahs, read, listen to them and even make searches by words.
+In the hadith page you can load hadiths one by one
 
-Currently, two official plugins are available:
+## Clone the app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can clone the app:
+
+- git clone https://github.com/modough/islamicKnowledgeReact.git
+
+Install dependencies:
+
+- git install
+
+And start:
+
+- npm run dev
