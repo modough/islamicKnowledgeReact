@@ -1,0 +1,110 @@
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1f2937;
+  width: 100%;
+  z-index: 100;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0 100px;
+}
+.logo img {
+  width: 50px;
+  height: 70px;
+}
+.logo h1 {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-size: 34px;
+  color: #f09e49;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 100px 0 0;
+}
+.menuBurger {
+  display: none;
+}
+.header-right ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.header-right ul li {
+  color: #fff;
+  font-weight: 500;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.header-right ul li.orange {
+  color: #f09e49;
+}
+@media screen and (max-width: 1050px) {
+  .header-right ul li {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 932px) {
+  .logo {
+    padding: 0 0 0 50px;
+  }
+  .logo img {
+    width: 40px;
+    height: 60px;
+  }
+  .logo h1 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 632px) {
+  .menuBurger {
+    display: block;
+    padding: 0 30px;
+    cursor: pointer;
+  }
+  .header-right {
+    display: none;
+  }
+  header {
+    position: relative;
+  }
+  .header-right ul {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .header-right.display {
+    width: 25%;
+    background: #1f2937;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 50px;
+    top: 0;
+    right: 0;
+  }
+  .header-right .close {
+    position: absolute;
+    color: #fff;
+    font-size: 50px;
+    top: -30px;
+    right: 30px;
+    cursor: pointer;
+  }
+  .header-right.display ul {
+    height: 300px;
+    justify-content: space-between;
+  }
+  .header-right.display ul li {
+    font-size: 26px;
+  }
+}

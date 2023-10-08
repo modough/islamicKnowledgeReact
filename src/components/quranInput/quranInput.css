@@ -1,0 +1,28 @@
+.quranInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #111;
+  border-radius: 10px;
+}
+
+.quranInput label input {
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+
+.quranInput img {
+  padding: 5px;
+  background-color: #111;
+  cursor: pointer;
+  width: 40px;
+}
+@media screen and (max-width: 1100px) {
+  .quranInput label input {
+    padding: 5px 10px;
+  }
+  .quranInput img {
+    width: 30px;
+  }
+}
