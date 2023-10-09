@@ -10,6 +10,7 @@
   padding: 10px;
   border: 4px solid #f09e49;
   border-right: none;
+  outline: none;
 }
 
 .search select option {

@@ -20,7 +20,7 @@ function Select({ setSurahNumber, surahNumber, setQuranData }) {
                 <option>Search by Surah</option>
                 {quranChapters.map((number) => {
                     return (
-                        <option key={number.id} value={number.id}>{`Surah n°: ${number.id} - ${number.name}`}</option>
+                        <option key={number.id} value={number.id}>{`Surah n° ${number.id} - ${number.name}`}</option>
                     )
                 })}
             </select>

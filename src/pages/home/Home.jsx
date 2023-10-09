@@ -1,22 +1,19 @@
-import { useTranslation } from 'react-i18next'
 import './home.css'
 import PropTypes from 'prop-types'
 import QuranInput from '../../components/quranInput/QuranInput'
+import LoadingPage from '../loadingPage/LoadingPage';
+import { block } from "million/react";
 
-function Home({ hadithData, quranData, data, word, setWord, handleSearch }) {
-    const { t } = useTranslation()
+const Home = block(({ hadithData, quranData, data, word, setWord, handleSearch }) => {
     return (
-        <section className="home">
-            <h2 className="title">{t('Welcome to Islamic Knowledge')}</h2>
-            {hadithData &&
+        !hadithData && !quranData && !data ? <LoadingPage /> :
+            <section className="home">
+                <h2 className="title">Welcome to Islamic Knowledge</h2>
                 <div className="hadith">
-                    <h4>{hadithData.title}</h4>
-                    <p className='description'>{hadithData.hadith}</p>
-                    <p>{`${hadithData.book}, Hadith: ${hadithData.hadithNumberArabic}`}</p>
+                    <h4>{hadithData?.title}</h4>
+                    <p className='description'>{hadithData?.hadith}</p>
+                    <p>{`${hadithData?.book}, Hadith: ${hadithData?.hadithNumberArabic}`}</p>
                 </div>
-            }
-
-            {quranData &&
                 <div className="quran">
                     <QuranInput setWord={setWord} word={word} handleSearch={handleSearch} />
                     <h3 className='home-quranTitle'>
@@ -27,7 +24,6 @@ function Home({ hadithData, quranData, data, word, setWord, handleSearch }) {
                     </h4>
                     <p className='description'>{quranData?.description}</p>
                     {data?.map((elmt, i) => {
-
                         return (
                             i !== 0 &&
                             <div key={`${elmt?.surah_no}-${elmt?.verse_no}`} className="quranDetails">
@@ -38,10 +34,10 @@ function Home({ hadithData, quranData, data, word, setWord, handleSearch }) {
                     })
                     }
                 </div>
-            }
-        </section>
+            </section>
+
     )
-}
+})
 Home.propTypes = {
     hadithData: PropTypes.object,
     quranData: PropTypes.object,
