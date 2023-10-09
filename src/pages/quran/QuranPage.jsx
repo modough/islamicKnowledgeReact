@@ -20,6 +20,7 @@ const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData,
             return { text, audio, index }
         });
     }
+    console.log(array)
     return (
         !quranData && !actualSurah ? <LoadingPage /> :
             <section className='quranPage flex flex-col justify-center gap bg-logo'>
@@ -60,7 +61,12 @@ const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData,
                                     <p className='bolder'>{item.text.content}</p>
                                     <p className='bold'>{item.text.translation_eng}</p>
                                     <p className=''>{item.text.transliteration}</p>
-                                    <audio key={item.audio.number} className='audio' src={item.audio.audio} controls />
+                                    <audio
+                                        key={item.audio.number}
+                                        className='audio'
+                                        src={item.audio.audio || item.audio.audioSecondary}
+                                        controls
+                                    />
                                 </td>
 
                             </tr>
