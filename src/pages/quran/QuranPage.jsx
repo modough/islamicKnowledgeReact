@@ -4,29 +4,28 @@ import Select from '../../components/select/Select';
 import LoadingPage from '../loadingPage/LoadingPage';
 import { block } from 'million/react';
 
-const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData, quranAudio }) => {
+const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData, quranAudio, setQuranAudio }) => {
     let array = [];
-    const actualSurah = quranAudio?.data?.surahs.find((surah) => {
-        return surah.number === surahNumber
-
-    })
+    console.log(quranAudio);
     const verse = quranData?.verses && Object.keys(quranData?.verses).map(key => {
         return quranData?.verses[key]
     })
 
-    if (verse?.length === actualSurah?.ayahs?.length) {
+    if (verse?.length === quranAudio?.data?.ayahs?.length) {
         array = verse?.map((text, index) => {
-            const audio = actualSurah?.ayahs[index]
+            const audio = quranAudio?.data?.ayahs[index]
             return { text, audio, index }
         });
     }
+    console.log(array);
     return (
-        !quranData && !actualSurah ? <LoadingPage /> :
+        !quranData && !quranAudio ? <LoadingPage /> :
             <section className='quranPage flex flex-col justify-center gap bg-logo'>
                 <Select
                     setSurahNumber={setSurahNumber}
                     surahNumber={surahNumber}
                     setQuranData={setQuranData}
+                    setQuranAudio={setQuranAudio}
                 />
                 <div className='flex flex-col items-center justify-center border '>
                     <div className='quran-title flex flex-col items-center justify-center'>

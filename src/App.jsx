@@ -23,7 +23,7 @@ function App() {
     fetchHadithsApi(number, setHadithData)
     fetchQuranApi(surahNumber, setQuranData)
     fetchAllHadiths(setAllHadithData)
-    fetchQuranAudioApi(setQuranAudio)
+    fetchQuranAudioApi(setQuranAudio, surahNumber)
   }, [])
   const handleSearch = () => {
     fetchQuranByWord(word, setData);
@@ -50,6 +50,7 @@ function App() {
             surahNumber={surahNumber}
             setQuranData={setQuranData}
             quranAudio={quranAudio}
+            setQuranAudio={setQuranAudio}
           />}
         />
         <Route path='/hadith' element={<HadithPage allHadithData={allHadithData} />} />

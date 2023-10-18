@@ -1,12 +1,13 @@
 import SearchSvg from '../../assets/search.svg'
-import { fetchQuranApi } from '../../data/fetchApi'
+import { fetchQuranApi, fetchQuranAudioApi } from '../../data/fetchApi'
 import { quranChapters } from '../../data/quranChapters'
 import './select.css'
 import PropTypes from 'prop-types'
 
-function Select({ setSurahNumber, surahNumber, setQuranData }) {
+function Select({ setSurahNumber, surahNumber, setQuranData, setQuranAudio }) {
     const handleSearch = () => {
         fetchQuranApi(surahNumber, setQuranData)
+        fetchQuranAudioApi(setQuranAudio, surahNumber)
     }
 
     return (
@@ -35,6 +36,7 @@ function Select({ setSurahNumber, surahNumber, setQuranData }) {
 Select.propTypes = {
     setSurahNumber: PropTypes.func,
     surahNumber: PropTypes.number,
-    setQuranData: PropTypes.func
+    setQuranData: PropTypes.func,
+    setQuranAudio: PropTypes.func
 }
 export default Select

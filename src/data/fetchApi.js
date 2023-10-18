@@ -20,8 +20,8 @@ export const fetchQuranApi = async (surahNumber, setQuranData) => {
     }
 
 }
-export const fetchQuranAudioApi = async (setQuranAudio) => {
-    const url = 'http://api.alquran.cloud/v1/quran/ar.alafasy';
+export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
+    const url = `http://api.alquran.cloud/v1/surah/${surahNumber}/ar.alafasy`;
     const options = {
         method: 'GET',
     };
@@ -29,6 +29,8 @@ export const fetchQuranAudioApi = async (setQuranAudio) => {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
+        console.log(result)
+
         setQuranAudio(result)
     } catch (error) {
         console.error(error);
