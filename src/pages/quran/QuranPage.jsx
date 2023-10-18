@@ -6,7 +6,6 @@ import { block } from 'million/react';
 
 const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData, quranAudio, setQuranAudio }) => {
     let array = [];
-    console.log(quranAudio);
     const verse = quranData?.verses && Object.keys(quranData?.verses).map(key => {
         return quranData?.verses[key]
     })
@@ -17,7 +16,6 @@ const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData,
             return { text, audio, index }
         });
     }
-    console.log(array);
     return (
         !quranData && !quranAudio ? <LoadingPage /> :
             <section className='quranPage flex flex-col justify-center gap bg-logo'>

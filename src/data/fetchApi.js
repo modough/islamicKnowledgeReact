@@ -29,8 +29,6 @@ export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        console.log(result)
-
         setQuranAudio(result)
     } catch (error) {
         console.error(error);
