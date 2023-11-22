@@ -36,8 +36,8 @@ const QuranPage = ({ quranData, setSurahNumber, surahNumber, setQuranData, quran
                         <p className='p-10'>{quranData?.description}</p>
                     </span>
                 </div>
-                <table className='flex flex-col items-center justify-between gap '>
-                    <tbody className='border'>
+                <table className='flex flex-col items-center justify-between gap border '>
+                    <tbody>
                         {quranData?.id === 9 ? null : (
                             quranData?.id !== 1 && (
                                 <tr className='relative flex w-auto '>

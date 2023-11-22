@@ -9,12 +9,10 @@ const Chatbot = ({ setShow }) => {
     const [data, setData] = useState()
     const [question, setQuestion] = useState('');
     const [threadId, setThreadId] = useState(null);
-
-
     const handleQuestion = (e) => {
         setQuestion(e.target.value);
-
     };
+
     return (
         <section className="chatbot">
             <p className='title'>
@@ -89,12 +87,9 @@ const Chatbot = ({ setShow }) => {
                         handleCloseThread(
                             threadId,
                             setThreadId
-
                         )
                         setShow(false)
-                    }
-
-                    }
+                    }}
                 >Close
                 </button>
             </div>

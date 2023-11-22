@@ -4,7 +4,7 @@ import QuranInput from '../../components/quranInput/QuranInput'
 import LoadingPage from '../loadingPage/LoadingPage';
 
 import Chatbot from '../../components/chatbot/Chatbot';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import logo from '../../assets/logo.png';
 
 const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
@@ -44,7 +44,7 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                 </div>
                 {show ?
                     <Chatbot setShow={setShow} /> :
-                    <Fragment>
+                    <div className='chatbot-button'>
                         <img
                             width={50}
                             className='chat'
@@ -54,11 +54,9 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                             alt="chatbot image"
                         />
                         <p className={`${toast ? 'chat-toast' : 'none'}`}>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
-                    </Fragment>
+                    </div>
                 }
-
             </section>
-
     )
 }
 Home.propTypes = {

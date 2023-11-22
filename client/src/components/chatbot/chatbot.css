@@ -1,5 +1,5 @@
 .chatbot {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 100px;
   display: flex;
