@@ -10,6 +10,7 @@ import logo from '../../assets/logo.png';
 const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
     const [show, setShow] = useState(false);
     const [toast, setToast] = useState(false);
+    const [hideToast, setHideToast] = useState(false);
     setTimeout(() => {
         setToast(true)
     }, 5000);
@@ -53,7 +54,10 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                             onKeyDown={(e) => console.log(e.target.value)}
                             alt="chatbot image"
                         />
-                        <p className={`${toast ? 'chat-toast' : 'none'}`}>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
+                        {!hideToast && <div className={`${toast ? 'chat-toast' : 'none'}`}>
+                            <span className='toast-close' onClick={() => setHideToast(!hideToast)}>X</span>
+                            <p>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
+                        </div>}
                     </div>
                 }
             </section>

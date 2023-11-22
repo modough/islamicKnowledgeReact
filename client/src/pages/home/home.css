@@ -80,6 +80,15 @@
   border-radius: 10px;
   background-color: lightgray;
 }
+.toast-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: #fff;
+  padding: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .none {
   display: none;
 }
