@@ -1,4 +1,5 @@
 .home {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +62,37 @@
 .blue {
   background: blue;
 }
-
+.chat {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+  padding: 5px;
+  background-color: #1f2937;
+  border-radius: 50%;
+  border: 3px solid #f39b4e;
+  cursor: pointer;
+}
+.chat-toast {
+  position: absolute;
+  right: 180px;
+  bottom: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: lightgray;
+}
+.none {
+  display: none;
+}
+.chat-toast::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: -8px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent lightgray;
+  rotate: 135deg;
+}
 @media screen and (max-width: 1500px) {
   .home {
     padding: 150px;

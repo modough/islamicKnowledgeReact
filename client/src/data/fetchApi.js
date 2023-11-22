@@ -1,16 +1,11 @@
-import { SECRET_KEY } from "../keys";
 
+const localHost = "http://localhost:8080";
 
 export const fetchQuranApi = async (surahNumber, setQuranData) => {
-    const url = `https://al-quran1.p.rapidapi.com/${surahNumber}`;
+    const url = `${localHost}/surah/${surahNumber}`;
     const options = {
         method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': SECRET_KEY,
-            'X-RapidAPI-Host': 'al-quran1.p.rapidapi.com'
-        }
     };
-
     try {
         const response = await fetch(url, options);
         const result = await response.json();
@@ -19,13 +14,12 @@ export const fetchQuranApi = async (surahNumber, setQuranData) => {
         console.error(error);
     }
 
-}
+};
 export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
-    const url = `http://api.alquran.cloud/v1/surah/${surahNumber}/ar.alafasy`;
+    const url = `${localHost}/audio/${surahNumber}`;
     const options = {
         method: 'GET',
     };
-
     try {
         const response = await fetch(url, options);
         const result = await response.json();
@@ -34,19 +28,14 @@ export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
         console.error(error);
     }
 
-}
+};
 
 
 export const fetchHadithsApi = async (number, setHadithData) => {
-    const url = `https://mutawatir-hadith-api.p.rapidapi.com/hadith/${number}`;
+    const url = `${localHost}/hadith/${number}`;
     const options = {
         method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': SECRET_KEY,
-            'X-RapidAPI-Host': 'mutawatir-hadith-api.p.rapidapi.com'
-        }
     };
-
     try {
         const response = await fetch(url, options);
         const result = await response.json();
@@ -56,13 +45,9 @@ export const fetchHadithsApi = async (number, setHadithData) => {
     }
 }
 export const fetchAllHadiths = async (setAllHadithData) => {
-    const url = 'https://mutawatir-hadith-api.p.rapidapi.com/allHadith'
+    const url = `${localHost}/hadith`;
     const options = {
         method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': SECRET_KEY,
-            'X-RapidAPI-Host': 'mutawatir-hadith-api.p.rapidapi.com'
-        }
     };
 
     try {
@@ -76,23 +61,53 @@ export const fetchAllHadiths = async (setAllHadithData) => {
 }
 
 export const fetchQuranByWord = async (word, setData) => {
-    const url = `https://al-quran1.p.rapidapi.com/corpus/${word}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': SECRET_KEY,
-            'X-RapidAPI-Host': 'al-quran1.p.rapidapi.com'
-        }
-    };
-
+    const url = `${localHost}/quran/${word}`;
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         const result = await response.json();
         setData(result)
     } catch (error) {
         console.error(error);
     }
-}
+};
+
+export const handleChatbotSubmit = async (
+    e,
+    question,
+    threadId,
+    setData,
+    setThreadId,
+    setQuestion
+) => {
+    e.preventDefault();
+    const options = {
+        method: 'POST',
+        body: JSON.stringify({ question, threadId }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    try {
+        const response = await fetch(`${localHost}/bot`, options)
+        const result = await response.json();
+        setData(result.data)
+        setThreadId(result.threadId)
+        setQuestion('')
+
+    } catch (error) {
+        console.error(error)
+    }
+};
 
 
+
+
+export const handleCloseThread = async (threadId, setThreadId) => {
+    if (threadId) {
+        await fetch(`${localHost}/close/${threadId}`, {
+            method: 'POST',
+        });
+        setThreadId(null); // Reset the thread ID
+    }
+};
 

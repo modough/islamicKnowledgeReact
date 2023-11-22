@@ -2,7 +2,13 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
 import { useEffect, useState } from 'react'
-import { fetchAllHadiths, fetchHadithsApi, fetchQuranApi, fetchQuranAudioApi, fetchQuranByWord } from './data/fetchApi'
+import {
+  fetchAllHadiths,
+  fetchHadithsApi,
+  fetchQuranApi,
+  fetchQuranAudioApi,
+  fetchQuranByWord
+} from './data/fetchApi'
 import Home from './pages/home/Home'
 import HadithPage from './pages/hadith/HadithPage'
 import QuranPage from './pages/quran/QuranPage'

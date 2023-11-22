@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import './quranPage.css'
 import Select from '../../components/select/Select';
 import LoadingPage from '../loadingPage/LoadingPage';
-import { block } from 'million/react';
 
-const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData, quranAudio, setQuranAudio }) => {
+
+const QuranPage = ({ quranData, setSurahNumber, surahNumber, setQuranData, quranAudio, setQuranAudio }) => {
     let array = [];
     const verse = quranData?.verses && Object.keys(quranData?.verses).map(key => {
         return quranData?.verses[key]
@@ -50,7 +50,8 @@ const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData,
                             )
                         )}
 
-                        {array?.map((item) => {
+                        {array?.map((item, i) => {
+                            const next = item.audio.audio[i + 1]
                             return <tr key={item.index} className='relative flex w-auto '>
                                 <td className="line-number flex items-center justify-center border absolute">{item.audio.numberInSurah}</td>
                                 <td className=' texts'>
@@ -58,10 +59,14 @@ const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData,
                                     <p className='bold'>{item.text.translation_eng}</p>
                                     <p className=''>{item.text.transliteration}</p>
                                     <audio
+                                        onEnded={() => {
+                                            next.play()
+                                        }}
                                         key={item.audio.number}
                                         className='audio'
                                         src={item.audio.audio || item.audio.audioSecondary}
                                         controls
+
                                     />
                                 </td>
 
@@ -73,12 +78,14 @@ const QuranPage = block(({ quranData, setSurahNumber, surahNumber, setQuranData,
                 </table>
             </section>
     )
-})
+}
 QuranPage.propTypes = {
     quranData: PropTypes.object,
     setSurahNumber: PropTypes.func,
     surahNumber: PropTypes.number,
     setQuranData: PropTypes.func,
-    quranAudio: PropTypes.object
+    quranAudio: PropTypes.object,
+    setQuranAudio: PropTypes.func,
+
 }
 export default QuranPage

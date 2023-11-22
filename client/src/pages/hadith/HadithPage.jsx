@@ -2,10 +2,10 @@ import { useState } from 'react'
 import './hadithPage.css'
 import PropTypes from 'prop-types'
 import LoadingPage from '../loadingPage/LoadingPage';
-import { block } from 'million/react';
 
 
-const HadithPage = block(({ allHadithData }) => {
+
+const HadithPage = ({ allHadithData }) => {
     const [numOfCard, setNumOfCard] = useState(1)
 
     const sliceArray = allHadithData?.data.slice(0, numOfCard)
@@ -26,7 +26,7 @@ const HadithPage = block(({ allHadithData }) => {
                 <button onClick={loadCard}>Load another one !</button>
             </section>
     )
-})
+}
 HadithPage.propTypes = {
     allHadithData: PropTypes.object,
 }

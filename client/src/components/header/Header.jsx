@@ -18,7 +18,12 @@ function Header() {
                 <img src={logo} alt="site logo" />
                 <h1>Knowledge</h1>
             </div>
-            <img src={menuBurger} alt="menu icon" className='menuBurger' onClick={() => setDisplayMenu(!displayMenu)} />
+            <img
+                src={menuBurger}
+                alt="menu icon"
+                className='menuBurger'
+                onClick={() => setDisplayMenu(!displayMenu)}
+            />
             <div className={displayMenu ? 'header-right display' : 'header-right'}>
                 <p className='close' onClick={() => setDisplayMenu(!displayMenu)}>x</p>
                 <ul>

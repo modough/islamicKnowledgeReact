@@ -1,0 +1,98 @@
+.chatbot {
+  position: absolute;
+  bottom: 20px;
+  right: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  max-width: 400px;
+  height: 500px;
+  background-color: lightgray;
+}
+.chatDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: auto;
+  height: 300px;
+}
+.chatDiv::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #f39b4e; /* or add it to the track */
+}
+.chatDiv::-webkit-scrollbar-thumb {
+  background: #1f2937;
+}
+.answerDiv,
+.questionDiv {
+  position: relative;
+  display: flex;
+  padding: 5px;
+}
+.answerDiv::-webkit-scrollbar {
+  display: none;
+}
+.answerLogo {
+  position: absolute;
+  padding: 5px;
+  background-color: #1f2937;
+  border-radius: 50%;
+  border: 3px solid #f39b4e;
+}
+.questionLogo {
+  position: absolute;
+  border: 3px solid #1f2937;
+  border-radius: 50%;
+}
+.answer,
+.question {
+  padding-left: 20px;
+  padding-top: 10px;
+  margin: 0 30px;
+}
+
+.chatbot .title {
+  background-color: #1f2937;
+  color: #fff;
+  padding: 20px;
+  margin: 0;
+  font-size: 15px;
+  border-radius: 10px 10px 0 0;
+  text-shadow: none;
+}
+.bottom {
+  width: 100%;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: lightgray;
+  padding-top: 10px;
+}
+.chatbot form {
+  position: relative;
+}
+.chatbot form input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #1f2937;
+}
+.chatbot form button {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+}
+.chatbot button {
+  padding: 5px 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: normal;
+}

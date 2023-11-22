@@ -1,8 +1,8 @@
 import './loadingPage.css'
 import loaderImg from '../../assets/loader.svg';
-import { block } from "million/react";
 
-const LoadingPage = block(() => {
+
+const LoadingPage = () => {
     return (
         <section className='loadingPage'>
             <div className="loadingBackground">
@@ -10,6 +10,6 @@ const LoadingPage = block(() => {
             </div>
         </section>
     )
-})
+}
 
 export default LoadingPage

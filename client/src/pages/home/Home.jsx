@@ -2,9 +2,17 @@ import './home.css'
 import PropTypes from 'prop-types'
 import QuranInput from '../../components/quranInput/QuranInput'
 import LoadingPage from '../loadingPage/LoadingPage';
-import { block } from "million/react";
 
-const Home = block(({ hadithData, quranData, data, word, setWord, handleSearch }) => {
+import Chatbot from '../../components/chatbot/Chatbot';
+import { Fragment, useState } from 'react';
+import logo from '../../assets/logo.png';
+
+const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
+    const [show, setShow] = useState(false);
+    const [toast, setToast] = useState(false);
+    setTimeout(() => {
+        setToast(true)
+    }, 5000);
     return (
         !hadithData && !quranData && !data ? <LoadingPage /> :
             <section className="home">
@@ -34,10 +42,25 @@ const Home = block(({ hadithData, quranData, data, word, setWord, handleSearch }
                     })
                     }
                 </div>
+                {show ?
+                    <Chatbot setShow={setShow} /> :
+                    <Fragment>
+                        <img
+                            width={50}
+                            className='chat'
+                            src={logo}
+                            onClick={() => setShow(!show)}
+                            onKeyDown={(e) => console.log(e.target.value)}
+                            alt="chatbot image"
+                        />
+                        <p className={`${toast ? 'chat-toast' : 'none'}`}>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
+                    </Fragment>
+                }
+
             </section>
 
     )
-})
+}
 Home.propTypes = {
     hadithData: PropTypes.object,
     quranData: PropTypes.object,
