@@ -95,8 +95,8 @@
   .header-right .close {
     position: absolute;
     color: #fff;
-    font-size: 50px;
-    top: -30px;
+    font-size: 40px;
+    top: -20px;
     right: 30px;
     cursor: pointer;
   }

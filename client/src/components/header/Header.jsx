@@ -25,7 +25,7 @@ function Header() {
                 onClick={() => setDisplayMenu(!displayMenu)}
             />
             <div className={displayMenu ? 'header-right display' : 'header-right'}>
-                <p className='close' onClick={() => setDisplayMenu(!displayMenu)}>x</p>
+                <p className='close' onClick={() => setDisplayMenu(!displayMenu)}>X</p>
                 <ul>
                     <Link to='/' onClick={() => setDisplayMenu(!displayMenu)}>
                         <li className={pathname === '/' ? 'orange' : ''} >Home</li>

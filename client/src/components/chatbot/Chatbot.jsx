@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png';
 import user from '../../assets/user.jpg';
 import { handleChatbotSubmit, handleCloseThread } from '../../data/fetchApi';
 
-const Chatbot = ({ setShow }) => {
+const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
     const [data, setData] = useState()
     const [question, setQuestion] = useState('');
     const [threadId, setThreadId] = useState(null);
@@ -14,61 +14,48 @@ const Chatbot = ({ setShow }) => {
     };
 
     return (
-        <section className="chatbot">
-            <p className='title'>
-                Hello, I&apos;m your teacher bot, let us start today&lsquo;s lesson
-            </p>
-            <div className='chatDiv'>
-                {data && data.map((elmt) => {
-                    const { content, role, id } = elmt;
-                    if (role === 'user') return (
-                        <div key={id} className='questionDiv'>
-                            <img
-                                width={30}
-                                className='questionLogo'
-                                src={user}
-                                alt="chatbot image"
-                            />
-                            <p className='question'>{content[0]?.text?.value}</p>
-                        </div>
-                    )
-                    if (role === 'assistant') {
-                        return (
-                            <div key={id} className='answerDiv'>
+        show ?
+            <section className="chatbot">
+                <div className='title'>
+                    <img
+                        width={50}
+                        src={logo}
+                        alt="chatbot image"
+                    />
+                    Hello, I&apos;m your teacher bot, let us start today&lsquo;s lesson
+                </div>
+                <div className='chatDiv'>
+                    {data && data.map((elmt) => {
+                        const { content, role, id } = elmt;
+                        if (role === 'user') return (
+                            <div key={id} className='questionDiv'>
                                 <img
-                                    width={20}
-                                    className='answerLogo'
-                                    src={logo}
+                                    width={30}
+                                    className='questionLogo'
+                                    src={user}
                                     alt="chatbot image"
                                 />
-                                <p className='answer'>{content[0]?.text?.value}</p>
+                                <p className='question'>{content[0]?.text?.value}</p>
                             </div>
                         )
-                    }
-                }).reverse()}
-            </div>
-            <div className='bottom'>
-                <form
-                    onSubmit={(e) => {
-                        handleChatbotSubmit(
-                            e,
-                            question,
-                            threadId,
-                            setData,
-                            setThreadId,
-                            setQuestion
-                        )
-                    }}
-                    className='question-input'
-                >
-                    <input
-                        type="text"
-                        value={question}
-                        onChange={handleQuestion}
-                    />
-                    <button
-                        type="button"
-                        onClick={(e) => {
+                        if (role === 'assistant') {
+                            return (
+                                <div key={id} className='answerDiv'>
+                                    <img
+                                        width={20}
+                                        className='answerLogo'
+                                        src={logo}
+                                        alt="chatbot image"
+                                    />
+                                    <p className='answer'>{content[0]?.text?.value}</p>
+                                </div>
+                            )
+                        }
+                    }).reverse()}
+                </div>
+                <div className='bottom'>
+                    <form
+                        onSubmit={(e) => {
                             handleChatbotSubmit(
                                 e,
                                 question,
@@ -78,25 +65,63 @@ const Chatbot = ({ setShow }) => {
                                 setQuestion
                             )
                         }}
-                    >Enter
+                        className='question-input'
+                    >
+                        <input
+                            type="text"
+                            value={question}
+                            onChange={handleQuestion}
+                        />
+                        <button
+                            type="button"
+                            onClick={(e) => {
+                                handleChatbotSubmit(
+                                    e,
+                                    question,
+                                    threadId,
+                                    setData,
+                                    setThreadId,
+                                    setQuestion
+                                )
+                            }}
+                        >Enter
+                        </button>
+                    </form>
+                    <button
+                        type='button'
+                        onClick={() => {
+                            handleCloseThread(
+                                threadId,
+                                setThreadId
+                            )
+                            setShow(false)
+                        }}
+                    >Close
                     </button>
-                </form>
-                <button
-                    type='button'
-                    onClick={() => {
-                        handleCloseThread(
-                            threadId,
-                            setThreadId
-                        )
-                        setShow(false)
-                    }}
-                >Close
-                </button>
+                </div>
+            </section> :
+            <div className='chatbot-button'>
+                <img
+                    width={50}
+                    className='chat'
+                    src={logo}
+                    onClick={() => setShow(!show)}
+                    onKeyDown={(e) => console.log(e.target.value)}
+                    alt="chatbot image"
+                />
+                {!hideToast && <div className={`${toast ? 'chat-toast' : 'none'}`}>
+                    <span className='toast-close' onClick={() => setHideToast(!hideToast)}>X</span>
+                    <p>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
+                </div>}
             </div>
-        </section>
+
     )
 }
 Chatbot.propTypes = {
     setShow: PropTypes.func,
+    show: PropTypes.bool,
+    toast: PropTypes.bool,
+    hideToast: PropTypes.bool,
+    setHideToast: PropTypes.func,
 }
 export default Chatbot

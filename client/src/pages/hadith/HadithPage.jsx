@@ -14,7 +14,7 @@ const HadithPage = ({ allHadithData }) => {
     }
     return (
         !sliceArray ? <LoadingPage /> :
-            <section className='hadithPage'>
+            <section className='hadithPage p-1300 p-498'>
                 {sliceArray?.map((elmt) => {
                     return (
                         <div key={elmt.id} className='hadith-container'>

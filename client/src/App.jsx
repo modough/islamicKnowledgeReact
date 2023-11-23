@@ -13,6 +13,7 @@ import Home from './pages/home/Home'
 import HadithPage from './pages/hadith/HadithPage'
 import QuranPage from './pages/quran/QuranPage'
 import ErrorPage from './pages/error/ErrorPage'
+import Chatbot from './components/chatbot/Chatbot'
 
 
 function App() {
@@ -25,6 +26,12 @@ function App() {
   const [surahNumber, setSurahNumber] = useState(parseInt(chapterId))
   const [word, setWord] = useState('')
   const [data, setData] = useState(null)
+  const [show, setShow] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [hideToast, setHideToast] = useState(false);
+  setTimeout(() => {
+    setToast(true)
+  }, 5000);
   useEffect(() => {
     fetchHadithsApi(number, setHadithData)
     fetchQuranApi(surahNumber, setQuranData)
@@ -62,6 +69,13 @@ function App() {
         <Route path='/hadith' element={<HadithPage allHadithData={allHadithData} />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
+      <Chatbot
+        show={show}
+        setShow={setShow}
+        toast={toast}
+        hideToast={hideToast}
+        setHideToast={setHideToast}
+      />
     </Router>
   )
 }

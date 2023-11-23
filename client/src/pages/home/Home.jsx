@@ -3,20 +3,12 @@ import PropTypes from 'prop-types'
 import QuranInput from '../../components/quranInput/QuranInput'
 import LoadingPage from '../loadingPage/LoadingPage';
 
-import Chatbot from '../../components/chatbot/Chatbot';
-import { useState } from 'react';
-import logo from '../../assets/logo.png';
 
 const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
-    const [show, setShow] = useState(false);
-    const [toast, setToast] = useState(false);
-    const [hideToast, setHideToast] = useState(false);
-    setTimeout(() => {
-        setToast(true)
-    }, 5000);
+
     return (
         !hadithData && !quranData && !data ? <LoadingPage /> :
-            <section className="home">
+            <section className="home p-1300 p-498">
                 <h2 className="title">Welcome to Islamic Knowledge</h2>
                 <div className="hadith">
                     <h4>{hadithData?.title}</h4>
@@ -43,23 +35,7 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                     })
                     }
                 </div>
-                {show ?
-                    <Chatbot setShow={setShow} /> :
-                    <div className='chatbot-button'>
-                        <img
-                            width={50}
-                            className='chat'
-                            src={logo}
-                            onClick={() => setShow(!show)}
-                            onKeyDown={(e) => console.log(e.target.value)}
-                            alt="chatbot image"
-                        />
-                        {!hideToast && <div className={`${toast ? 'chat-toast' : 'none'}`}>
-                            <span className='toast-close' onClick={() => setHideToast(!hideToast)}>X</span>
-                            <p>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
-                        </div>}
-                    </div>
-                }
+
             </section>
     )
 }
