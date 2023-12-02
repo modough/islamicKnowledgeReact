@@ -5,20 +5,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   padding-bottom: 10px;
   border: 1px solid #1f2937;
   border-radius: 10px;
   max-width: 400px;
-  max-height: 450px;
+  max-height: 550px;
   background-color: lightgray;
 }
 .chatDiv {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   overflow: auto;
-  height: 300px;
+  min-height: 350px;
 }
 .chatDiv::-webkit-scrollbar {
   width: 5px;
@@ -30,36 +28,40 @@
 }
 .answerDiv,
 .questionDiv {
-  position: relative;
   display: flex;
+  align-items: baseline;
   padding: 5px;
+}
+.answerDiv {
+  margin-bottom: 20px;
 }
 .answerDiv::-webkit-scrollbar {
   display: none;
 }
 .answerLogo {
-  position: absolute;
+  width: 50px;
+  height: 50px;
   padding: 5px;
   background-color: #1f2937;
   border-radius: 50%;
   border: 3px solid #f39b4e;
 }
 .questionLogo {
-  position: absolute;
+  width: 50px;
+  height: 50px;
   border: 3px solid #1f2937;
   border-radius: 50%;
 }
 .answer,
 .question {
-  padding-left: 20px;
   padding-top: 10px;
-  margin: 0 30px;
+  margin: 0 20px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 0 15px 15px;
 }
 
 .chatbot .title {
-  display: flex;
-  align-items: center;
-  gap: 15px;
   background-color: #1f2937;
   color: #fff;
   padding: 20px;
@@ -67,6 +69,23 @@
   font-size: 15px;
   border-radius: 10px 10px 0 0;
   text-shadow: none;
+  width: 100%;
+  height: 100px;
+}
+.online {
+  position: relative;
+}
+.online::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 4px;
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2fc23b;
 }
 .bottom {
   width: 100%;
@@ -76,7 +95,6 @@
   align-items: center;
   gap: 20px;
   background-color: lightgray;
-  padding-top: 10px;
 }
 .chatbot form {
   position: relative;
@@ -103,4 +121,27 @@
   .chatbot {
     right: 0;
   }
+}
+
+@keyframes bounce {
+  2%,
+  8% {
+    transform: translateY(-15px);
+  }
+  5%,
+  11% {
+    transform: translateY(0px);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+img.chat {
+  animation: bounce 10s infinite, fadeIn 1s;
 }

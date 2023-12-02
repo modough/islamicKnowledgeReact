@@ -18,19 +18,29 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
             <section className="chatbot">
                 <div className='title'>
                     <img
-                        width={50}
+                        className='answerLogo'
                         src={logo}
                         alt="chatbot image"
                     />
-                    Hello, I&apos;m your teacher bot, let us start today&lsquo;s lesson
+                    <span className='online'>Online</span>
                 </div>
                 <div className='chatDiv'>
+                    <div className='answerDiv'>
+                        <img
+
+                            className='answerLogo'
+                            src={logo}
+                            alt="chatbot image"
+                        />
+                        <p className='answer'>
+                            Hello, I&apos;m your teacher bot, let us start today&lsquo;s lesson
+                        </p>
+                    </div>
                     {data && data.map((elmt) => {
                         const { content, role, id } = elmt;
                         if (role === 'user') return (
                             <div key={id} className='questionDiv'>
                                 <img
-                                    width={30}
                                     className='questionLogo'
                                     src={user}
                                     alt="chatbot image"
@@ -42,7 +52,6 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                             return (
                                 <div key={id} className='answerDiv'>
                                     <img
-                                        width={20}
                                         className='answerLogo'
                                         src={logo}
                                         alt="chatbot image"
@@ -51,6 +60,7 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                                 </div>
                             )
                         }
+
                     }).reverse()}
                 </div>
                 <div className='bottom'>
@@ -92,7 +102,8 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                         onClick={() => {
                             handleCloseThread(
                                 threadId,
-                                setThreadId
+                                setThreadId,
+                                setData
                             )
                             setShow(false)
                         }}

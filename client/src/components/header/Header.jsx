@@ -13,11 +13,11 @@ function Header() {
 
     return (
         <section className='header'>
-            <div className="logo">
+            <Link to='/' className="logo">
                 <h1>Islamic</h1>
                 <img src={logo} alt="site logo" />
                 <h1>Knowledge</h1>
-            </div>
+            </Link>
             <img
                 src={menuBurger}
                 alt="menu icon"

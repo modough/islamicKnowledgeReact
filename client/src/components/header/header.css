@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 0 0 100px;
+  cursor: pointer;
 }
 .logo img {
   width: 50px;
@@ -83,7 +84,7 @@
     padding-left: 0;
   }
   .header-right.display {
-    width: 25%;
+    width: 100%;
     background: #1f2937;
     position: absolute;
     display: flex;
@@ -106,5 +107,10 @@
   }
   .header-right.display ul li {
     font-size: 26px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .logo h1 {
+    display: none;
   }
 }

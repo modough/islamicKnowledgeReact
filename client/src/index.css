@@ -2,11 +2,11 @@
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   min-width: 10vh;
 }
 * {
   font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 li {
   list-style: none;
@@ -22,5 +22,10 @@ a {
 @media screen and (max-width: 498px) {
   .p-498 {
     padding: 150px 20px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .p-300 {
+    padding: 20px 30px;
   }
 }

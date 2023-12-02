@@ -102,12 +102,13 @@ export const handleChatbotSubmit = async (
 
 
 
-export const handleCloseThread = async (threadId, setThreadId) => {
+export const handleCloseThread = async (threadId, setThreadId, setData) => {
     if (threadId) {
         await fetch(`${localHost}/close/${threadId}`, {
             method: 'POST',
         });
         setThreadId(null); // Reset the thread ID
+        setData('')
     }
 };
 

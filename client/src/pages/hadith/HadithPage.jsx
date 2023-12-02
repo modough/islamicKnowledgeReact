@@ -8,7 +8,7 @@ import LoadingPage from '../loadingPage/LoadingPage';
 const HadithPage = ({ allHadithData }) => {
     const [numOfCard, setNumOfCard] = useState(1)
 
-    const sliceArray = allHadithData?.data.slice(0, numOfCard)
+    const sliceArray = allHadithData?.data?.slice(0, numOfCard)
     const loadCard = () => {
         setNumOfCard(numOfCard + 1)
     }
@@ -17,7 +17,7 @@ const HadithPage = ({ allHadithData }) => {
             <section className='hadithPage p-1300 p-498'>
                 {sliceArray?.map((elmt) => {
                     return (
-                        <div key={elmt.id} className='hadith-container'>
+                        <div key={elmt.id} className='hadith-container p-300' >
                             <h3 className='text-2xl font-bold'>{elmt.title}</h3>
                             <p>{elmt.hadith}</p>
                             <p className='font-bold'>{`${elmt.book}, Number: ${elmt.hadithNumberArabic}`}</p>

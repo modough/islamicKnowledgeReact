@@ -2,40 +2,44 @@ import './home.css'
 import PropTypes from 'prop-types'
 import QuranInput from '../../components/quranInput/QuranInput'
 import LoadingPage from '../loadingPage/LoadingPage';
-
+import Highlighter from "react-highlight-words";
 
 const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
-
     return (
         !hadithData && !quranData && !data ? <LoadingPage /> :
             <section className="home p-1300 p-498">
                 <h2 className="title">Welcome to Islamic Knowledge</h2>
-                <div className="hadith">
-                    <h4>{hadithData?.title}</h4>
+                <div className="hadith p-300">
+                    <h4 className='hadith-title'>{hadithData?.title}</h4>
                     <p className='description'>{hadithData?.hadith}</p>
                     <p>{`${hadithData?.book}, Hadith: ${hadithData?.hadithNumberArabic}`}</p>
                 </div>
-                <div className="quran">
-                    <QuranInput setWord={setWord} word={word} handleSearch={handleSearch} />
-                    <h3 className='home-quranTitle'>
-                        {`${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
-                    </h3>
-                    <h4>
-                        {`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}
-                    </h4>
+                <div className="quran p-300" >
+                    <div className='home-quranTitle'>
+                        <h3 >
+                            {`${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
+                        </h3>
+                        <h4>
+                            {`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}
+                        </h4>
+                    </div>
                     <p className='description'>{quranData?.description}</p>
+                    <QuranInput setWord={setWord} word={word} handleSearch={handleSearch} />
                     {data?.map((elmt, i) => {
                         return (
                             i !== 0 &&
                             <div key={`${elmt?.surah_no}-${elmt?.verse_no}`} className="quranDetails">
                                 <h3>{`Surah n° ${elmt?.surah_no} - Verse n°  ${elmt?.verse_no}`}</h3>
-                                <p className='description' >{elmt?.content}</p>
+                                <Highlighter
+                                    className='description'
+                                    searchWords={[word]}
+                                    textToHighlight={elmt?.content}
+                                    autoEscape={true}
+                                />
                             </div>
                         )
-                    })
-                    }
+                    })}
                 </div>
-
             </section>
     )
 }

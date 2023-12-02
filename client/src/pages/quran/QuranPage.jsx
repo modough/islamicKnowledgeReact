@@ -4,7 +4,13 @@ import Select from '../../components/select/Select';
 import LoadingPage from '../loadingPage/LoadingPage';
 
 
-const QuranPage = ({ quranData, setSurahNumber, surahNumber, setQuranData, quranAudio, setQuranAudio }) => {
+const QuranPage = ({ quranData,
+    setSurahNumber,
+    surahNumber,
+    setQuranData,
+    quranAudio,
+    setQuranAudio
+}) => {
     let array = [];
     const verse = quranData?.verses && Object.keys(quranData?.verses).map(key => {
         return quranData?.verses[key]
@@ -18,7 +24,8 @@ const QuranPage = ({ quranData, setSurahNumber, surahNumber, setQuranData, quran
     }
     return (
         !quranData && !quranAudio ? <LoadingPage /> :
-            <section className='quranPage flex flex-col justify-center gap bg-logo p-1300 p-498'>
+            <section
+                className='quranPage flex flex-col justify-center gap bg-logo p-1300 p-498'>
                 <Select
                     setSurahNumber={setSurahNumber}
                     surahNumber={surahNumber}
@@ -33,7 +40,7 @@ const QuranPage = ({ quranData, setSurahNumber, surahNumber, setQuranData, quran
                         <h4>{`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}</h4>
                     </div>
                     <span className=' bg-white'>
-                        <p className='p-10'>{quranData?.description}</p>
+                        <p className='p-10 p-300'>{quranData?.description}</p>
                     </span>
                 </div>
                 <table className='flex flex-col items-center justify-between gap border '>
@@ -42,14 +49,19 @@ const QuranPage = ({ quranData, setSurahNumber, surahNumber, setQuranData, quran
                             quranData?.id !== 1 && (
                                 <tr className='relative flex w-auto '>
                                     <td className=' texts'>
-                                        <p className='bolder'>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-                                        <p className='bold'> In the name of God, the merciful and compassionate</p>
-                                        <p className=''>Bismillahi rahmani rahim</p>
+                                        <p className='bolder'>
+                                            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                                        </p>
+                                        <p className='bold'>
+                                            In the name of God, the merciful and compassionate
+                                        </p>
+                                        <p className=''>
+                                            Bismillahi rahmani rahim
+                                        </p>
                                     </td>
                                 </tr>
                             )
                         )}
-
                         {array?.map((item, i) => {
                             const next = item.audio.audio[i + 1]
                             return <tr key={item.index} className='relative flex w-auto '>
@@ -66,14 +78,10 @@ const QuranPage = ({ quranData, setSurahNumber, surahNumber, setQuranData, quran
                                         className='audio'
                                         src={item.audio.audio || item.audio.audioSecondary}
                                         controls
-
                                     />
                                 </td>
-
                             </tr>
-                        }
-                        )
-                        }
+                        })}
                     </tbody>
                 </table>
             </section>
