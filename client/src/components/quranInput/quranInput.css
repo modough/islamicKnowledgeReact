@@ -1,9 +1,13 @@
 .quranInput {
+  margin: 50px 0;
+  position: relative;
+  width: 100%;
+}
+.quranInputDiv {
   display: flex;
   align-items: center;
-  border: 2px solid #111;
+  justify-content: end;
   border-radius: 10px;
-  width: 200px;
 }
 
 .quranInput label input {
@@ -17,7 +21,7 @@
   position: absolute;
   right: -2px;
   padding: 5px;
-  background-color: #111;
+  background-color: #1f2937;
   cursor: pointer;
   width: 40px;
   border-radius: 10px;

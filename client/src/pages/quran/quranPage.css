@@ -1,15 +1,39 @@
 .quranPage {
-  padding: 150px;
   background-image: url("../../assets/bg.jpg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: contain;
+  gap: 100px;
+  padding: 150px 350px;
+}
+
+.quranIntro {
+  width: 100%;
+  position: relative;
+  padding: 70px;
+  background-color: var(--light-orange);
+  box-shadow: 5px 5px 5px #1f2937;
+  opacity: 0.9;
+  font-size: 18px;
 }
 .quran-title {
-  background-color: lightgray;
+  position: absolute;
+  top: -30px;
+  width: 80%;
+  box-shadow: 5px 5px 10px #1f2937;
+}
+.first.texts {
   width: 100%;
-  border-radius: 10px 10px 0 0;
-  opacity: 0.9;
+}
+.quran-title,
+.first.texts {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+
+  background: #1f2937;
+  padding: 20px;
 }
 .flex {
   display: flex;
@@ -29,7 +53,9 @@
 .gap {
   gap: 20px;
 }
-
+table {
+  box-shadow: 5px 5px 5px #1f2937;
+}
 tbody {
   width: 100%;
 }
@@ -52,12 +78,6 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
   background-color: #fff;
   opacity: 0.9;
-}
-tr:first-of-type {
-  border-radius: 10px 10px 0 0;
-}
-tr:last-of-type {
-  border-radius: 0 0 10px 10px;
 }
 
 .bg-white {

@@ -25,30 +25,30 @@ const QuranPage = ({ quranData,
     return (
         !quranData && !quranAudio ? <LoadingPage /> :
             <section
-                className='quranPage flex flex-col justify-center gap bg-logo p-1300 p-498'>
+                className='quranPage flex flex-col justify-center bg-logo p-1300 p-498'>
                 <Select
                     setSurahNumber={setSurahNumber}
                     surahNumber={surahNumber}
                     setQuranData={setQuranData}
                     setQuranAudio={setQuranAudio}
                 />
-                <div className='flex flex-col items-center justify-center border '>
+                <div className='quranIntro flex flex-col items-center justify-center'>
                     <div className='quran-title flex flex-col items-center justify-center'>
                         <h3 className='text-xl font-bold'>
                             {`${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
                         </h3>
                         <h4>{`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}</h4>
                     </div>
-                    <span className=' bg-white'>
+                    <span >
                         <p className='p-10 p-300'>{quranData?.description}</p>
                     </span>
                 </div>
-                <table className='flex flex-col items-center justify-between gap border '>
+                <table className='flex flex-col items-center justify-between gap'>
                     <tbody>
                         {quranData?.id === 9 ? null : (
                             quranData?.id !== 1 && (
                                 <tr className='relative flex w-auto '>
-                                    <td className=' texts'>
+                                    <td className='first texts'>
                                         <p className='bolder'>
                                             بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                                         </p>
@@ -66,11 +66,12 @@ const QuranPage = ({ quranData,
                             const next = item.audio.audio[i + 1]
                             return <tr key={item.index} className='relative flex w-auto '>
                                 <td className="line-number flex items-center justify-center border absolute">{item.audio.numberInSurah}</td>
-                                <td className=' texts'>
+                                <td className='texts'>
                                     <p className='bolder'>{item.text.content}</p>
                                     <p className='bold'>{item.text.translation_eng}</p>
                                     <p className=''>{item.text.transliteration}</p>
                                     <audio
+                                        kind="captions"
                                         onEnded={() => {
                                             next.play()
                                         }}

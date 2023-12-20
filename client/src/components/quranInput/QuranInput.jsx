@@ -6,16 +6,18 @@ function QuranInput({ setWord, word, handleSearch }) {
 
     return (
         <div className='quranInput'>
-            <label>
-                <input
-                    placeholder='Search by Word'
-                    value={word}
-                    onChange={(e) => {
-                        setWord(e.target.value)
-                    }}
-                />
-            </label>
-            <img src={searchSvg} alt="" onClick={handleSearch} />
+            <div className='quranInputDiv'>
+                <label>
+                    <input
+                        placeholder='Search by Word'
+                        value={word}
+                        onChange={(e) => {
+                            setWord(e.target.value)
+                        }}
+                    />
+                </label>
+                <img src={searchSvg} alt="" onClick={handleSearch} />
+            </div>
         </div>
     )
 }

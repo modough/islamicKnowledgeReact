@@ -12,24 +12,26 @@ function Select({ setSurahNumber, surahNumber, setQuranData, setQuranAudio }) {
 
     return (
         <div className='search'>
-            <select
-                type="text"
-                onChange={(e) => {
-                    setSurahNumber(parseInt(e.target.value))
-                }}
-            >
-                <option>Search by Surah</option>
-                {quranChapters.map((number) => {
-                    return (
-                        <option key={number.id} value={number.id}>{`Surah n° ${number.id} - ${number.name}`}</option>
-                    )
-                })}
-            </select>
-            <button
-                src={SearchSvg}
-                alt="search button"
-                onClick={handleSearch}
-            >Load</button>
+            <div className='selectDiv'>
+                <select
+                    type="text"
+                    onChange={(e) => {
+                        setSurahNumber(parseInt(e.target.value))
+                    }}
+                >
+                    <option>Search by Surah</option>
+                    {quranChapters.map((number) => {
+                        return (
+                            <option key={number.id} value={number.id}>{`Surah n° ${number.id} - ${number.name}`}</option>
+                        )
+                    })}
+                </select>
+                <button
+                    src={SearchSvg}
+                    alt="search button"
+                    onClick={handleSearch}
+                >Load</button>
+            </div>
         </div>
     )
 }

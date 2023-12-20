@@ -17,7 +17,7 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                 <div className="quran p-300" >
                     <div className='home-quranTitle'>
                         <h3 >
-                            {`${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
+                            {`${quranData?.id} - ${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
                         </h3>
                         <h4>
                             {`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}
@@ -25,7 +25,9 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                     </div>
                     <p className='description'>{quranData?.description}</p>
                     <QuranInput setWord={setWord} word={word} handleSearch={handleSearch} />
+
                     {data?.map((elmt, i) => {
+                        console.log(data[0])
                         return (
                             i !== 0 &&
                             <div key={`${elmt?.surah_no}-${elmt?.verse_no}`} className="quranDetails">
@@ -38,7 +40,8 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                                 />
                             </div>
                         )
-                    })}
+                    }
+                    )}
                 </div>
             </section>
     )

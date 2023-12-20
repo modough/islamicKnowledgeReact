@@ -1,10 +1,15 @@
+import { API_KEY, SECRET_HADITH_HOST, SECRET_QURAN_HOST, URL, URL_AUDIO, URL_QURAN } from "../key";
 
 const localHost = "http://localhost:8080";
 
 export const fetchQuranApi = async (surahNumber, setQuranData) => {
-    const url = `${localHost}/surah/${surahNumber}`;
+    const url = `${URL_QURAN}/${surahNumber}`;
     const options = {
         method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': SECRET_QURAN_HOST
+        }
     };
     try {
         const response = await fetch(url, options);
@@ -16,7 +21,7 @@ export const fetchQuranApi = async (surahNumber, setQuranData) => {
 
 };
 export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
-    const url = `${localHost}/audio/${surahNumber}`;
+    const url = `${URL_AUDIO}/${surahNumber}/ar.alafasy`;
     const options = {
         method: 'GET',
     };
@@ -32,9 +37,13 @@ export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
 
 
 export const fetchHadithsApi = async (number, setHadithData) => {
-    const url = `${localHost}/hadith/${number}`;
+    const url = `${URL}/hadith/${number}`;
     const options = {
         method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': SECRET_HADITH_HOST
+        }
     };
     try {
         const response = await fetch(url, options);
@@ -45,9 +54,13 @@ export const fetchHadithsApi = async (number, setHadithData) => {
     }
 }
 export const fetchAllHadiths = async (setAllHadithData) => {
-    const url = `${localHost}/hadith`;
+    const url = `${URL}/allHadith`;
     const options = {
         method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': SECRET_HADITH_HOST
+        }
     };
 
     try {
@@ -61,9 +74,16 @@ export const fetchAllHadiths = async (setAllHadithData) => {
 }
 
 export const fetchQuranByWord = async (word, setData) => {
-    const url = `${localHost}/quran/${word}`;
+    const url = `${URL_QURAN}/corpus/${word}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': SECRET_QURAN_HOST
+        }
+    };
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, options);
         const result = await response.json();
         setData(result)
     } catch (error) {

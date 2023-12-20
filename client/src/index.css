@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --orange: #f09e49;
+  --light-orange: #fbcd9b;
+}
 body {
   margin: 0;
   padding: 0;
   min-width: 10vh;
 }
+
 * {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
