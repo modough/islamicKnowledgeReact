@@ -1,8 +1,4 @@
 .quranPage {
-  background-image: url("../../assets/bg.jpg");
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: contain;
   gap: 100px;
   padding: 150px 350px;
 }

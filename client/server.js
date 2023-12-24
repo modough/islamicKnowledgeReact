@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { teachBot } from './src/bot.js';
+import { closeThread, teachBot } from './src/bot.js';
 
 
 const app = express();
@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/bot', teachBot);
+app.post('/close/:threadId', closeThread);
 
 
 const PORT = 8080;

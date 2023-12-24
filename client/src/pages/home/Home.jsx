@@ -7,14 +7,14 @@ import Highlighter from "react-highlight-words";
 const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
     return (
         !hadithData && !quranData && !data ? <LoadingPage /> :
-            <section className="home p-1300 p-498">
+            <section className="home p-1300 p-498 bg">
                 <h2 className="title">Welcome to Islamic Knowledge</h2>
-                <div className="hadith p-300">
+                <div className="hadith p-400">
                     <h4 className='hadith-title'>{hadithData?.title}</h4>
                     <p className='description'>{hadithData?.hadith}</p>
                     <p>{`${hadithData?.book}, Hadith: ${hadithData?.hadithNumberArabic}`}</p>
                 </div>
-                <div className="quran p-300" >
+                <div className="quran p-400" >
                     <div className='home-quranTitle'>
                         <h3 >
                             {`${quranData?.id} - ${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
@@ -24,6 +24,7 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
                         </h4>
                     </div>
                     <p className='description'>{quranData?.description}</p>
+
                     <QuranInput setWord={setWord} word={word} handleSearch={handleSearch} />
 
                     {data?.map((elmt, i) => {

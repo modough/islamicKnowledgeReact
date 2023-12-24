@@ -11,9 +11,10 @@ function Select({ setSurahNumber, surahNumber, setQuranData, setQuranAudio }) {
     }
 
     return (
-        <div className='search'>
-            <div className='selectDiv'>
+        <div className='search '>
+            <div className='selectDiv '>
                 <select
+                    className='w-400 w-330'
                     type="text"
                     onChange={(e) => {
                         setSurahNumber(parseInt(e.target.value))

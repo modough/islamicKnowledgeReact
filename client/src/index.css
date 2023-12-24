@@ -9,7 +9,12 @@ body {
   padding: 0;
   min-width: 10vh;
 }
-
+.bg {
+  background-image: url("../src/assets/bg.png"),
+    url("../src/assets/islamicbg.avif");
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, 3600px;
+}
 * {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
@@ -20,6 +25,11 @@ li {
 a {
   text-decoration: none;
 }
+@media screen and (min-width: 1645px) {
+  .p-1600 {
+    padding: 380px 50px;
+  }
+}
 @media screen and (max-width: 1300px) {
   .p-1300 {
     padding: 150px 50px;
@@ -28,6 +38,25 @@ a {
 @media screen and (max-width: 498px) {
   .p-498 {
     padding: 150px 20px;
+  }
+  .fs-400 {
+    font-size: 10px;
+  }
+  button.fs-400 {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .w-400 {
+    max-width: 200px;
+  }
+  .p-400 {
+    padding: 20px 30px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .w-330 {
+    max-width: 150px;
   }
 }
 @media screen and (max-width: 300px) {

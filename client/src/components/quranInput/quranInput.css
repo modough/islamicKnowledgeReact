@@ -1,28 +1,52 @@
 .quranInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: 50px 0;
   position: relative;
-  width: 100%;
 }
 .quranInputDiv {
   display: flex;
   align-items: center;
-  justify-content: end;
   border-radius: 10px;
 }
-
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  margin-right: 20px;
+}
+.tag p {
+  border-bottom: 1px solid #1f2937;
+}
+.tag span {
+  font-weight: normal;
+  font-size: 15px;
+}
 .quranInput label input {
   border: none;
   padding: 12px;
   outline: none;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
 }
 
 .quranInput img {
-  position: absolute;
-  right: -2px;
-  padding: 5px;
   background-color: #1f2937;
   cursor: pointer;
   width: 40px;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
+  padding: 5px;
+}
+.quranInput img:hover {
+  padding: 7px;
+  transition: all 0.2s ease-in-out 0.2s;
+}
+@media screen and (max-width: 350px) {
+  .quranInputDiv {
+    justify-content: center;
+  }
+  .tag {
+    justify-content: start;
+  }
 }

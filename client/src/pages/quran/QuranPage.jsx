@@ -25,22 +25,22 @@ const QuranPage = ({ quranData,
     return (
         !quranData && !quranAudio ? <LoadingPage /> :
             <section
-                className='quranPage flex flex-col justify-center bg-logo p-1300 p-498'>
+                className='quranPage bg flex flex-col justify-center bg-logo p-1300 p-498'>
                 <Select
                     setSurahNumber={setSurahNumber}
                     surahNumber={surahNumber}
                     setQuranData={setQuranData}
                     setQuranAudio={setQuranAudio}
                 />
-                <div className='quranIntro flex flex-col items-center justify-center'>
-                    <div className='quran-title flex flex-col items-center justify-center'>
+                <div className='quranIntro flex flex-col items-center justify-center p-400'>
+                    <div className='quran-title flex flex-col items-center justify-center fs-400'>
                         <h3 className='text-xl font-bold'>
                             {`${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
                         </h3>
                         <h4>{`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}</h4>
                     </div>
-                    <span >
-                        <p className='p-10 p-300'>{quranData?.description}</p>
+                    <span className='p-400'>
+                        <p className='p-300'>{quranData?.description}</p>
                     </span>
                 </div>
                 <table className='flex flex-col items-center justify-between gap'>

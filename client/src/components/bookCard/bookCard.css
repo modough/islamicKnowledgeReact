@@ -1,0 +1,10 @@
+.bookCard {
+  padding: 10px 30px;
+  background: #1f2937;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 5px 5px 10px #1f2937;
+  cursor: pointer;
+}

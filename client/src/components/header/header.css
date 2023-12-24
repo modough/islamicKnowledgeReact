@@ -68,6 +68,9 @@
   }
 }
 @media screen and (max-width: 632px) {
+  .logo {
+    padding: 0 0 0 20px;
+  }
   .menuBurger {
     display: block;
     padding: 0 30px;

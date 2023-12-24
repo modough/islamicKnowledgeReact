@@ -17,12 +17,29 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
         show ?
             <section className="chatbot">
                 <div className='title'>
-                    <img
-                        className='answerLogo'
-                        src={logo}
-                        alt="chatbot image"
-                    />
-                    <span className='online'>Online</span>
+                    <div className='title-left'>
+                        <img
+                            className='answerLogo'
+                            src={logo}
+                            alt="logo"
+                        />
+                        <span className='online'>Online</span>
+                    </div>
+                    <div className='title-right'>
+                        <button
+                            className='close'
+                            type='button'
+                            onClick={() => {
+                                handleCloseThread(
+                                    threadId,
+                                    setThreadId,
+                                    setData
+                                )
+                                setShow(false)
+                            }}
+                        >X
+                        </button>
+                    </div>
                 </div>
                 <div className='chatDiv'>
                     <div className='answerDiv'>
@@ -30,7 +47,7 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
 
                             className='answerLogo'
                             src={logo}
-                            alt="chatbot image"
+                            alt="chatbot logo"
                         />
                         <p className='answer'>
                             Hello, I&apos;m your teacher bot, let us start today&lsquo;s lesson
@@ -43,7 +60,7 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                                 <img
                                     className='questionLogo'
                                     src={user}
-                                    alt="chatbot image"
+                                    alt="user"
                                 />
                                 <p className='question'>{content[0]?.text?.value}</p>
                             </div>
@@ -54,7 +71,7 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                                     <img
                                         className='answerLogo'
                                         src={logo}
-                                        alt="chatbot image"
+                                        alt="chatbot logo"
                                     />
                                     <p className='answer'>{content[0]?.text?.value}</p>
                                 </div>
@@ -97,18 +114,7 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                         >Enter
                         </button>
                     </form>
-                    <button
-                        type='button'
-                        onClick={() => {
-                            handleCloseThread(
-                                threadId,
-                                setThreadId,
-                                setData
-                            )
-                            setShow(false)
-                        }}
-                    >Close
-                    </button>
+
                 </div>
             </section> :
             <div className='chatbot-button'>
@@ -118,12 +124,16 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                     src={logo}
                     onClick={() => setShow(!show)}
                     onKeyDown={(e) => console.log(e.target.value)}
-                    alt="chatbot image"
+                    alt="chatbot logo"
+                    role="button"
                 />
-                {!hideToast && <div className={`${toast ? 'chat-toast' : 'none'}`}>
-                    <span className='toast-close' onClick={() => setHideToast(!hideToast)}>X</span>
-                    <p>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
-                </div>}
+                {
+                    !hideToast &&
+                    <div className={`${toast ? 'chat-toast' : 'none'}`}>
+                        <span className='toast-close' onClick={() => setHideToast(!hideToast)}>X</span>
+                        <p>Hello, I&apos;m Your Assistant.<br></br> How may i help you ?</p>
+                    </div>
+                }
             </div>
 
     )

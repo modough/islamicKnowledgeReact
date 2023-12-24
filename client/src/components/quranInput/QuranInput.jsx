@@ -16,7 +16,11 @@ function QuranInput({ setWord, word, handleSearch }) {
                         }}
                     />
                 </label>
-                <img src={searchSvg} alt="" onClick={handleSearch} />
+                <img src={searchSvg} alt="" onClick={handleSearch} onKeyDown={handleSearch} />
+            </div>
+            <div className='tag'>
+                <p>Tag:</p>
+                <span>{word}</span>
             </div>
         </div>
     )
