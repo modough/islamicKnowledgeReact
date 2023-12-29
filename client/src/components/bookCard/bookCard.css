@@ -1,10 +1,29 @@
 .bookCard {
+  width: 100%;
+  display: flex;
   padding: 10px 30px;
   background: #1f2937;
-  color: #fff;
+  box-shadow: 5px 5px 10px #1f2937;
+}
+.bookCard-name {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: transparent;
   border: none;
+  outline: none;
+  color: #fff;
   font-size: 20px;
   font-weight: bold;
-  box-shadow: 5px 5px 10px #1f2937;
   cursor: pointer;
+  text-transform: capitalize;
+}
+.bookCard-name p {
+  display: flex;
+  margin: 0;
+}
+.bookCard button:hover {
+  color: #f39b4e;
+  background: transparent;
 }

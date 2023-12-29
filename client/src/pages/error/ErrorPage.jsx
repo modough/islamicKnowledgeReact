@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import './errorPage.css';
 
+
 function ErrorPage() {
+    const { name, id } = useParams()
+    console.log(name, id)
     return (
         <div id="error-page">
             <h1>404</h1>

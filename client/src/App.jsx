@@ -14,9 +14,14 @@ import HadithPage from './pages/hadith/HadithPage'
 import QuranPage from './pages/quran/QuranPage'
 import ErrorPage from './pages/error/ErrorPage'
 import Chatbot from './components/chatbot/Chatbot'
+import BookComponent from './pages/books/Book'
+import Chapter from './pages/chapter/Chapter'
 
 
 function App() {
+
+
+
   const [quranData, setQuranData] = useState(null)
   const [quranAudio, setQuranAudio] = useState(null)
   const [hadithData, setHadithData] = useState(null)
@@ -67,6 +72,8 @@ function App() {
           />}
         />
         <Route path='/hadith' element={<HadithPage allHadithData={allHadithData} />} />
+        <Route path='/hadith/:name' element={<BookComponent />} />
+        <Route path='/hadith/:name/:id' element={<Chapter />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Chatbot

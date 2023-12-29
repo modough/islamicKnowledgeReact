@@ -132,3 +132,15 @@ export const handleCloseThread = async (threadId, setThreadId, setData) => {
     }
 };
 
+
+export const fetchBookByName = async (name, setData) => {
+    const url = `http://localhost:8080/book/${name}`;
+
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+        setData(result)
+    } catch (error) {
+        console.error(error);
+    }
+};

@@ -10,10 +10,8 @@
   position: relative;
   max-width: 1200px;
   display: flex;
-  align-items: center;
-  justify-content: start;
 }
-.hadithPage-bottom p {
+.hadithPage-bottom .bottom-paragraph {
   position: absolute;
   flex-wrap: wrap;
   top: -40px;
@@ -35,7 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 50px;
   background-color: var(--light-orange);
   box-shadow: 5px 5px 5px #1f2937;
@@ -44,8 +42,8 @@
 .books-container {
   position: relative;
   display: flex;
+  max-width: 1200px;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
   gap: 20px;
   padding: 50px;
@@ -53,7 +51,18 @@
   box-shadow: 5px 5px 5px #1f2937;
   opacity: 0.9;
 }
-.hadithPage button {
+.book-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px;
+  background-color: var(--light-orange);
+  box-shadow: 5px 5px 5px #1f2937;
+  width: 100%;
+}
+
+.hadithPage .load {
   position: absolute;
   top: 39%;
   left: 50%;
