@@ -45,6 +45,9 @@ a {
   button.fs-400 {
     font-size: 10px;
   }
+  .gap-400 {
+    gap: 10px;
+  }
 }
 @media screen and (max-width: 400px) {
   .w-400 {

@@ -1,0 +1,19 @@
+.chapterTitle {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  width: 315px;
+  height: 55px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 10px;
+  background: #1f2937;
+  box-shadow: 5px 5px 10px #1f2937;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: capitalize;
+}

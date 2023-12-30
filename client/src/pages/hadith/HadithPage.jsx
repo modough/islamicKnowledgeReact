@@ -11,12 +11,11 @@ import { Link } from 'react-router-dom';
 const HadithPage = ({ allHadithData }) => {
 
     const [numOfCard, setNumOfCard] = useState(1)
-    const [link, setLink] = useState('')
     const sliceArray = allHadithData?.data?.slice(0, numOfCard)
     const loadCard = () => {
         setNumOfCard(numOfCard + 1)
     }
-    console.log(name)
+
     return (
         !sliceArray ? <LoadingPage /> :
             <section className='hadithPage bg p-1600'>
@@ -41,13 +40,11 @@ const HadithPage = ({ allHadithData }) => {
                                         key={book.key}
                                         book={book.name}
                                         arabic={book.arabic}
-                                        setActive={setLink}
                                     />
                                 </Link>
                             )
                         })}
                     </div>
-
                 </div>
             </section >
     )
