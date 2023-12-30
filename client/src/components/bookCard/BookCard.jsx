@@ -3,16 +3,13 @@ import './bookCard.css';
 
 const BookCard = ({ book, setLink, arabic }) => {
     return (
-        <section className="bookCard fs-400">
-            <button
-                className='bookCard-name'
 
-            >
-                <p>{book}</p>
-                <p>{arabic}</p>
-            </button>
+        <button className='bookCard-name fs-400'>
+            <p>{book}</p>
+            <p>{arabic}</p>
+        </button>
 
-        </section>
+
     )
 }
 

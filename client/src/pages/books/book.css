@@ -1,0 +1,10 @@
+.component {
+  gap: 100px;
+  padding: 150px;
+}
+table {
+  box-shadow: 5px 5px 5px #1f2937;
+}
+tbody {
+  width: 100%;
+}

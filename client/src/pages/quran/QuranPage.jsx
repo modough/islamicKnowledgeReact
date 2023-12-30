@@ -24,8 +24,7 @@ const QuranPage = ({ quranData,
     }
     return (
         !quranData && !quranAudio ? <LoadingPage /> :
-            <section
-                className='quranPage bg flex flex-col justify-center bg-logo p-1300 p-498'>
+            <section className='quranPage bg flex flex-col justify-center bg-logo p-1300 p-498'>
                 <Select
                     setSurahNumber={setSurahNumber}
                     surahNumber={surahNumber}

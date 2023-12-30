@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 import './book.css';
 import qudsi from '../../../public/qudsi.json';
 import nawawi from '../../../public/nawawi.json';
@@ -10,10 +8,6 @@ import { Link, useParams } from 'react-router-dom';
 
 const BookComponent = () => {
     const { name } = useParams()
-    console.log(name)
-    console.log('bulugh', bulugh_almaram)
-    console.log('qudsi', qudsi)
-    console.log('nawawi', nawawi)
 
     const fetchDb = () => {
         if (name === 'qudsi') {
@@ -33,16 +27,16 @@ const BookComponent = () => {
 
     return (
 
-        <section className='component' >
-            <table>
+        <section className='component bg flex flex-col justify-center bg-logo p-1300 p-498' >
+            <table className='flex flex-col items-center justify-between gap'>
                 <tbody>
                     {data && data.hadiths.length <= 42 && data.hadiths.map((data) => (
-                        <tr key={data.id}>
-                            <td style={{ display: 'flex', flexDirection: 'column' }}>
-                                <p>{data.english.narrator}</p>
+                        <tr key={data.id} className=' flex items-center w-auto '>
+                            <td style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '50px' }}>
+                                <p style={{ fontWeight: 'bold' }}>{data.english.narrator}</p>
                                 <p>{data.english.text}</p>
                                 <p>{data.arabic}</p>
-                                <p>{data.id}</p>
+                                <p>{`40 Hadiths ${name}, Hadith n° ${data.id}`}</p>
                             </td>
                         </tr>
                     )
