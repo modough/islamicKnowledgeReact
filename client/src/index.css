@@ -25,6 +25,9 @@ li {
 a {
   text-decoration: none;
 }
+.none {
+  display: none;
+}
 @media screen and (min-width: 1645px) {
   .p-1600 {
     padding: 380px 50px;

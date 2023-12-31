@@ -47,13 +47,25 @@ const BookComponent = () => {
 
     return (
         <section className='book p-1300 p-498 bg'>
-
             {data && data.hadiths.length <= 42 &&
                 <div
                     key={clicked.id}
-                    className=' flex items-center w-auto '
-                    style={{ width: '100%', padding: '200px 0', display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '20px' }}
+                    className='bookHadiths-container flex items-center w-auto '
                 >
+                    <div className='slider-container p-400'>
+                        <p className={`${clicked.english.narrator === "" ? "" : 'slider-container-title fs-400'}`}>
+                            {clicked.english.narrator}
+                        </p>
+                        <p>
+                            {clicked.english.text}
+                        </p>
+                        <p>
+                            {clicked.arabic}
+                        </p>
+                        <p className='reference'>
+                            {`40 Hadiths ${name}, Hadith n° ${clicked.id}`}
+                        </p>
+                    </div>
                     <div className='slider gap-400' >
                         <button
                             style={{ background: 'transparent', border: 'none' }}
@@ -62,20 +74,9 @@ const BookComponent = () => {
                         >
                             <img src={arrow} alt="" className='leftArrow' />
                         </button>
-                        <div className='slider-container p-400'>
-                            <p className={`${clicked.english.narrator === "" ? "" : 'slider-container-title fs-400'}`}>
-                                {clicked.english.narrator}
-                            </p>
-                            <p>
-                                {clicked.english.text}
-                            </p>
-                            <p>
-                                {clicked.arabic}
-                            </p>
-                            <p className='reference'>
-                                {`40 Hadiths ${name}, Hadith n° ${clicked.id}`}
-                            </p>
-                        </div>
+                        <p className='pagination'>
+                            {`${currentIndex + 1} of ${hadithsLength}`}
+                        </p>
                         <button
                             style={{ background: 'transparent', border: 'none' }}
                             type=""
@@ -85,21 +86,21 @@ const BookComponent = () => {
                         </button>
                     </div>
 
-                    <p className='pagination'>
-                        {`${currentIndex + 1}/${hadithsLength}`}
-                    </p>
+
 
                 </div>
             }
-            <div className="chapterTitle-container">
+            <div className={`${data.hadiths.length <= 42 ? 'none' : 'chapterTitle-section'}`}>
+                <p className='chapterTitle-section-info'> Please select a chapter ...</p>
                 {data && data.hadiths.length > 42 && data.chapters.map((data) => (
-                    <Link key={data.id} to={`${data.id}`} >
-                        <ChapterTitle data={data} />
-                    </Link>
+                    <div key={data.id} className="chapterTitle-container">
+                        <Link to={`${data.id}`} >
+                            <ChapterTitle data={data} />
+                        </Link>
+                    </div>
                 )
                 )}
             </div>
-
 
         </section >
     )

@@ -18,17 +18,18 @@ const HadithPage = ({ allHadithData }) => {
 
     return (
         !sliceArray ? <LoadingPage /> :
-            <section className='hadithPage bg p-1600'>
+            <section className='hadithPage bg '>
                 <div className='hadithPage-top'>
                     {sliceArray?.map((elmt) => {
                         return (
                             <div key={elmt.id} className='hadith-container p-300' >
+                                <button className='fs-400 load' onClick={loadCard}>Load another one !</button>
                                 <h3 className='text-2xl font-bold'>{elmt.title}</h3>
                                 <p>{elmt.hadith}</p>
                                 <p className='font-bold'>{`${elmt.book}, Number: ${elmt.hadithNumberArabic}`}</p>
                             </div>)
                     }).pop()}
-                    <button className='fs-400 load' onClick={loadCard}>Load another one !</button>
+
                 </div>
                 <div className='hadithPage-bottom'>
                     <p className=' bottom-paragraph fs-400'>List of Books</p>

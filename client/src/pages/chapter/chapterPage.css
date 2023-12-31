@@ -1,0 +1,22 @@
+.chapterPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  padding: 150px 50px;
+}
+.chapterPage-container {
+  max-width: 1200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px;
+  background-color: var(--light-orange);
+  box-shadow: 5px 5px 5px #1f2937;
+  opacity: 0.9;
+}

@@ -61,8 +61,8 @@ const QuranPage = ({ quranData,
                                 </tr>
                             )
                         )}
-                        {array?.map((item, i) => {
-                            const next = item.audio.audio[i + 1]
+                        {array?.map((item) => {
+
                             return <tr key={item.index} className='relative flex w-auto '>
                                 <td className="line-number flex items-center justify-center border absolute">{item.audio.numberInSurah}</td>
                                 <td className='texts'>
@@ -71,9 +71,7 @@ const QuranPage = ({ quranData,
                                     <p className=''>{item.text.transliteration}</p>
                                     <audio
                                         kind="captions"
-                                        onEnded={() => {
-                                            next.play()
-                                        }}
+
                                         key={item.audio.number}
                                         className='audio'
                                         src={item.audio.audio || item.audio.audioSecondary}

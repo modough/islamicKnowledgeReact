@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 20px;
+  justify-content: space-between;
   width: 315px;
   height: 55px;
   background: transparent;
@@ -16,4 +16,8 @@
   font-weight: bold;
   cursor: pointer;
   text-transform: capitalize;
+}
+.chapterTitle:hover {
+  color: #3a434f;
+  background-color: #f39b4e;
 }

@@ -1,38 +1,64 @@
 .book {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  padding: 150px 50px;
-}
-.slider-container {
-  max-width: 1200px;
+  min-width: 450px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 50px;
+  justify-content: center;
+  gap: 100px;
+  padding: 200px 50px;
+}
+.bookHadiths-container {
+  max-width: 1200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px;
   background-color: var(--light-orange);
   box-shadow: 5px 5px 5px #1f2937;
   opacity: 0.9;
 }
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 50px;
+  padding: 50px;
+  background-color: lightgray;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px 0px #1f2937 inset;
+  -webkit-box-shadow: 10px 5px 5px 0px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 10px 5px 5px 0px rgba(0, 0, 0, 0.75) inset;
+  max-height: 400px;
+  overflow: auto;
+}
+.slider-container::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #f39b4e; /* or add it to the track */
+}
+.slider-container::-webkit-scrollbar-thumb {
+  background: #1f2937;
+}
 .slider-container p {
   font-size: 20px;
+  margin: 0;
 }
-.slider-container-title {
+p.slider-container-title {
   padding: 10px 30px;
   background: #1f2937;
   color: #fff;
   border: none;
-  font-size: 15px;
+
   font-weight: bold;
   box-shadow: 5px 5px 10px #1f2937;
   z-index: 1;
 }
-.reference {
-  font-weight: bold;
+p.reference {
+  font-size: 17px;
 }
 .pagination {
   font-weight: bold;
@@ -44,6 +70,7 @@
 .slider {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 50px;
 }
 .rightArrow,
@@ -55,19 +82,41 @@
   transform: rotate(180deg);
 }
 
-.chapterTitle-container {
+.chapterTitle-section {
   max-width: 1200px;
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 70px;
+  justify-content: space-between;
+  row-gap: 30px;
+  padding: 100px;
   background-color: var(--light-orange);
   box-shadow: 5px 5px 5px #1f2937;
   opacity: 0.9;
 }
+.chapterTitle-section-info {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 30px;
+  background: #1f2937;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  font-weight: bold;
+  box-shadow: 5px 5px 10px #1f2937;
+  cursor: pointer;
+}
+.chapterTitle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 400px) {
   .slider-container p {
     font-size: 15px;
@@ -75,5 +124,10 @@
   .rightArrow,
   .leftArrow {
     width: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .bookHadiths-container {
+    padding: 10px;
   }
 }
