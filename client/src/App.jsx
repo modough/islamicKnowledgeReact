@@ -15,7 +15,7 @@ import QuranPage from './pages/quran/QuranPage'
 import ErrorPage from './pages/error/ErrorPage'
 import Chatbot from './components/chatbot/Chatbot'
 import BookComponent from './pages/books/Book'
-import Chapter from './pages/chapter/Chapter'
+import ChapterPage from './pages/chapter/ChapterPage'
 
 
 function App() {
@@ -73,7 +73,7 @@ function App() {
         />
         <Route path='/hadith' element={<HadithPage allHadithData={allHadithData} />} />
         <Route path='/hadith/:name' element={<BookComponent />} />
-        <Route path='/hadith/:name/:id' element={<Chapter />} />
+        <Route path='/hadith/:name/:id' element={<ChapterPage />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Chatbot

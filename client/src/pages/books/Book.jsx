@@ -1,32 +1,15 @@
 import './book.css';
-import qudsi from '../../../public/qudsi.json';
-import nawawi from '../../../public/nawawi.json';
-import shahwaliullah from '../../../public/shahwaliullah.json';
-import bulugh_almaram from '../../data/json/bulugh_almaram.json';
-import riyad_assalihin from '../../data/json/riyad_assalihin.json';
 import { Link, useParams } from 'react-router-dom';
 import arrow from '../../assets/arrow.svg';
 import { useState } from 'react';
 import ChapterTitle from '../../components/chapterTitle/ChapterTitle';
+import { fetchDb } from '../../data/fetchJson';
 
 const BookComponent = () => {
     const { name } = useParams()
 
-    const fetchDb = () => {
-        if (name === 'qudsi') {
-            return qudsi
-        }
-        if (name === 'shahwaliullah') {
-            return shahwaliullah
-        }
-        if (name === 'bulugh_almaram') {
-            return bulugh_almaram
-        }
-        if (name === 'riyad_assalihin') { return riyad_assalihin }
-        if (name === 'nawawi') { return nawawi }
 
-    }
-    const data = fetchDb()
+    const data = fetchDb(name)
     const { hadiths } = data;
     const hadithsLength = hadiths.length;
     const [clicked, setClicked] = useState(hadiths[0]);
@@ -111,9 +94,7 @@ const BookComponent = () => {
             <div className="chapterTitle-container">
                 {data && data.hadiths.length > 42 && data.chapters.map((data) => (
                     <Link key={data.id} to={`${data.id}`} >
-
                         <ChapterTitle data={data} />
-
                     </Link>
                 )
                 )}
