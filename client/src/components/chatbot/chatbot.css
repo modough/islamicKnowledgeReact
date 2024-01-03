@@ -1,7 +1,7 @@
 .chatbot {
   position: fixed;
-  bottom: 20px;
-  right: 100px;
+  bottom: 120px;
+  right: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,6 +69,7 @@
   width: 100%;
   height: 100px;
   padding: 20px;
+  margin: 0;
 }
 .chatbot .title-left {
   color: #fff;
@@ -89,26 +90,7 @@
   transform: translateY(-50%);
   background: #2fc23b;
 }
-.chatbot .title-right {
-  position: absolute;
-  right: 5px;
-  top: -20px;
-}
-.title-right .close {
-  cursor: pointer;
-  background-color: lightgrey;
-  color: #1f2937;
-  font-weight: bold;
-  font-size: 15px;
-  border: none;
-  outline: none;
-  padding: 5px 10px;
-  border-radius: 50%;
-}
-.title-right .close:hover {
-  background-color: #f39b4e;
-  color: #fff;
-}
+
 .bottom {
   width: 100%;
   bottom: 10px;
@@ -150,11 +132,38 @@
   transition: all 0.2s ease-in-out 0.2s;
 }
 .chat-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 130px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f39b4e;
   z-index: 10;
+}
+.chat-toast p {
+  font-size: 15px;
+}
+.toast-close {
+  position: absolute;
+  font-weight: bold;
+  right: 5px;
+  top: 5px;
+  background-color: #fff;
+  padding: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 @media screen and (max-width: 498px) {
   .chatbot {
+    right: 50px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .chatbot {
     right: 0;
+  }
+  img.chat {
+    right: 10px;
   }
 }
 

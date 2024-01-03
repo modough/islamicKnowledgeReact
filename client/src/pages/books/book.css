@@ -82,7 +82,7 @@ p.reference {
   transform: rotate(180deg);
 }
 
-.chapterTitle-section {
+.chapterTitle-sectionDiv {
   max-width: 1200px;
   position: relative;
   display: flex;
@@ -117,17 +117,25 @@ p.reference {
   justify-content: space-between;
 }
 
+@media screen and (max-width: 600px) {
+  .bookHadiths-container {
+    padding: 10px;
+  }
+}
 @media screen and (max-width: 400px) {
+  .book {
+    min-width: auto;
+    padding: 250px 0 0 0;
+  }
+  .chapterTitle-sectionDiv {
+    padding: 100px 50px;
+  }
+
   .slider-container p {
     font-size: 15px;
   }
   .rightArrow,
   .leftArrow {
     width: 30px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .bookHadiths-container {
-    padding: 10px;
   }
 }

@@ -1,6 +1,7 @@
 .quranPage {
   gap: 100px;
   padding: 150px 350px;
+  align-items: center;
 }
 
 .quranIntro {
@@ -111,13 +112,53 @@ tr:nth-child(even) {
   border-radius: 30px;
 }
 @media screen and (max-width: 1300px) {
+  .quranPage {
+    padding: 150px;
+  }
   .texts {
     width: 75%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .quranPage {
+    padding: 150px 50px;
   }
 }
 @media screen and (max-width: 570px) {
   .audio {
     width: 170px;
+  }
+  .quranIntro {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .quranPage {
+    align-items: center;
+    padding: 150px 0 0 0;
+    gap: 50px;
+  }
+  .quranIntro {
+    padding: 10px;
+  }
+
+  .quran-title {
+    position: unset;
+    width: 100%;
+    gap: 5px;
+  }
+  .quran-title h3,
+  .quran-title h4 {
+    margin: 0;
+  }
+  .quranIntro-description {
+    padding: 10px;
+  }
+  .audio {
+    width: 170px;
+  }
+  .texts {
+    padding: 20px;
   }
 }
 @media screen and (max-width: 300px) {

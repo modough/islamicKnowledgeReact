@@ -13,7 +13,6 @@ const ChapterPage = () => {
     const [clicked, setClicked] = useState(hadiths[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-
     const scrollRight = () => {
         if (currentIndex + 1 >= chapterHadithsLength) {
             setCurrentIndex(0);
@@ -27,7 +26,6 @@ const ChapterPage = () => {
         setCurrentIndex(currentIndex + 1);
         setClicked(nextHadith[0]);
     }
-
     const scrollLeft = () => {
         if (currentIndex === 0) {
             setCurrentIndex(chapterHadithsLength - 1);
@@ -43,11 +41,8 @@ const ChapterPage = () => {
         setClicked(prevHadith[0]);
     }
 
-
-
-
     return (
-        <section className='chapterPage p-1300 p-498 bg' >
+        <section className='chapterPage bg' >
             <div
                 key={clicked.id}
                 className='chapterPage-container flex items-center w-auto '
@@ -64,7 +59,7 @@ const ChapterPage = () => {
                         {clicked.arabic}
                     </p>
                     <p className='reference'>
-                        {`40 Hadiths ${name}, Hadith n° ${clicked.id}`}
+                        {`Hadiths ${name}, Hadith n° ${clicked.id}`}
                     </p>
                 </div>
                 <div className='slider gap-400' >
@@ -86,14 +81,9 @@ const ChapterPage = () => {
                         <img src={arrow} alt="" className='rightArrow' />
                     </button>
                 </div>
-
-
-
             </div>
         </section >
     )
-
-
 };
 
 export default ChapterPage;

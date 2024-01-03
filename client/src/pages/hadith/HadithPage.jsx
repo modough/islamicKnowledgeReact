@@ -32,19 +32,21 @@ const HadithPage = ({ allHadithData }) => {
 
                 </div>
                 <div className='hadithPage-bottom'>
-                    <p className=' bottom-paragraph fs-400'>List of Books</p>
-                    <div className='books-container p-300'>
-                        {hadithBooks.map((book) => {
-                            return (
-                                <Link key={book.key} to={`${book.key}`}>
-                                    <BookCard
-                                        key={book.key}
-                                        book={book.name}
-                                        arabic={book.arabic}
-                                    />
-                                </Link>
-                            )
-                        })}
+                    <div className='hadithPage-bottom-container'>
+                        <p className=' bottom-paragraph fs-400'>List of Books</p>
+                        <div className='books-container p-300'>
+                            {hadithBooks.map((book) => {
+                                return (
+                                    <Link key={book.key} to={`${book.key}`}>
+                                        <BookCard
+                                            key={book.key}
+                                            book={book.name}
+                                            arabic={book.arabic}
+                                        />
+                                    </Link>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
             </section >

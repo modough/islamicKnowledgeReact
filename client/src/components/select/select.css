@@ -12,10 +12,9 @@
 }
 .search select {
   border-radius: 10px 0 0 10px;
-
   border: none;
   outline: none;
-  padding: 10px 30px;
+  padding: 10px 15px;
 }
 
 .search select option {
@@ -38,4 +37,10 @@
 }
 .search button:hover {
   background: #4f5154;
+}
+
+@media screen and (max-width: 700px) {
+  .search {
+    width: auto;
+  }
 }

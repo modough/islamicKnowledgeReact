@@ -19,9 +19,6 @@ import ChapterPage from './pages/chapter/ChapterPage'
 
 
 function App() {
-
-
-
   const [quranData, setQuranData] = useState(null)
   const [quranAudio, setQuranAudio] = useState(null)
   const [hadithData, setHadithData] = useState(null)
@@ -86,5 +83,4 @@ function App() {
     </Router>
   )
 }
-
 export default App

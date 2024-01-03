@@ -1,4 +1,5 @@
 import "./chapterTitle.css";
+import PropTypes from 'prop-types'
 
 const ChapterTitle = ({ data }) => {
     return (
@@ -8,5 +9,7 @@ const ChapterTitle = ({ data }) => {
         </div>
     )
 }
-
+ChapterTitle.propTypes = {
+    data: PropTypes.object
+}
 export default ChapterTitle

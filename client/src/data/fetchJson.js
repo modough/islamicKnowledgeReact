@@ -8,8 +8,12 @@ import abudawud from '../data/json/abudawud.json';
 import ahmed from '../data/json/ahmed.json';
 import aladab_almufrad from '../data/json/aladab_almufrad.json';
 import bukhari from '../data/json/bukhari.json';
-import darimi from '../data/json/darimi.json';
-
+import ibnmajah from '../data/json/ibnmajah.json';
+import malik from '../data/json/malik.json';
+import mishkat_almasabih from '../data/json/mishkat_almasabih.json';
+import muslim from '../data/json/muslim.json';
+import nasai from '../data/json/nasai.json';
+import shamail_muhammadiyah from '../data/json/shamail_muhammadiyah.json';
 
 
 export const fetchDb = (name) => {
@@ -23,6 +27,11 @@ export const fetchDb = (name) => {
     if (name === 'ahmed') { return ahmed }
     if (name === 'aladab_almufrad') { return aladab_almufrad }
     if (name === 'bukhari') { return bukhari }
-    if (name === 'darimi') { return darimi }
+    if (name === 'ibnmajah') { return ibnmajah }
+    if (name === 'malik') { return malik }
+    if (name === 'muslim') { return muslim }
+    if (name === 'nasai') { return nasai }
+    if (name === 'shamail_muhammadiyah') { return shamail_muhammadiyah }
+    if (name === 'mishkat_almasabih') { return mishkat_almasabih }
 
 }

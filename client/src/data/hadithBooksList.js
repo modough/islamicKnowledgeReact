@@ -12,7 +12,6 @@ export const hadithBooks = [
     { key: 'ahmed', name: 'ahmed', arabic: 'أحمد' },
     { key: 'malik', name: 'malik', arabic: 'مالك' },
     { key: 'muslim', name: 'muslim', arabic: 'مسلم' },
-    { key: 'darimi', name: 'darimi', arabic: 'الدارمي' },
     { key: 'ibnmajah', name: 'ibnmajah', arabic: 'ابن ماجه' },
     { key: 'nasai', name: 'nasai', arabic: 'النسائي' },
     { key: 'tirmidhi', name: 'tirmidhi', arabic: 'الترمذي' }

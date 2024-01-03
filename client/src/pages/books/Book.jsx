@@ -7,14 +7,11 @@ import { fetchDb } from '../../data/fetchJson';
 
 const BookComponent = () => {
     const { name } = useParams()
-
-
     const data = fetchDb(name)
     const { hadiths } = data;
     const hadithsLength = hadiths.length;
     const [clicked, setClicked] = useState(hadiths[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
-
 
     const scrollRight = () => {
         if (currentIndex + 1 >= hadithsLength) {
@@ -46,7 +43,7 @@ const BookComponent = () => {
     }
 
     return (
-        <section className='book p-1300 p-498 bg'>
+        <section className='book  bg'>
             {data && data.hadiths.length <= 42 &&
                 <div
                     key={clicked.id}
@@ -85,27 +82,24 @@ const BookComponent = () => {
                             <img src={arrow} alt="" className='rightArrow' />
                         </button>
                     </div>
-
-
-
                 </div>
             }
-            <div className={`${data.hadiths.length <= 42 ? 'none' : 'chapterTitle-section'}`}>
-                <p className='chapterTitle-section-info'> Please select a chapter ...</p>
-                {data && data.hadiths.length > 42 && data.chapters.map((data) => (
-                    <div key={data.id} className="chapterTitle-container">
-                        <Link to={`${data.id}`} >
-                            <ChapterTitle data={data} />
-                        </Link>
-                    </div>
-                )
-                )}
+            <div className='chapterTitle-section'>
+                <div className={`${data.hadiths.length <= 42 ? 'none' : 'chapterTitle-sectionDiv'}`}>
+                    <p className='chapterTitle-section-info'> Please select a chapter</p>
+                    {data && data.hadiths.length > 42 && data.chapters.map((data) => (
+                        <div
+                            key={data.id}
+                            className={`${data.english === '' && data.arabic === '' ? 'none' : "chapterTitle-container"}`}>
+                            <Link to={`${data.id}`} >
+                                <ChapterTitle data={data} />
+                            </Link>
+                        </div>
+                    )
+                    )}
+                </div>
             </div>
-
         </section >
     )
-
-
 };
-
 export default BookComponent;

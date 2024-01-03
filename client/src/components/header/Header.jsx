@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/logo.png'
+import close from '../../assets/Close.svg'
 import './header.css'
 import PropTypes from 'prop-types'
 import menuBurger from '../../assets/hamburger.svg'
@@ -25,7 +26,7 @@ function Header() {
                 onClick={() => setDisplayMenu(!displayMenu)}
             />
             <div className={displayMenu ? 'header-right display' : 'header-right'}>
-                <p className='close' onClick={() => setDisplayMenu(!displayMenu)}>X</p>
+                <img src={close} alt='' className='close' onClick={() => setDisplayMenu(!displayMenu)} />
                 <ul>
                     <Link to='/' onClick={() => setDisplayMenu(!displayMenu)}>
                         <li className={pathname === '/' ? 'orange' : ''} >Home</li>

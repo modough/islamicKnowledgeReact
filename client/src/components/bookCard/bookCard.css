@@ -26,3 +26,13 @@ button.bookCard-name:hover {
   color: #1f2937;
   background-color: #f39b4e;
 }
+@media screen and (max-width: 400px) {
+  .bookCard-name {
+    width: 240px;
+  }
+}
+@media screen and (max-width: 250px) {
+  .bookCard-name {
+    width: 200px;
+  }
+}

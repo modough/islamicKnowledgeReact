@@ -21,3 +21,14 @@
   color: #3a434f;
   background-color: #f39b4e;
 }
+
+@media screen and (max-width: 400px) {
+  .chapterTitle {
+    width: 240px;
+  }
+}
+@media screen and (max-width: 250px) {
+  .chapterTitle {
+    width: 200px;
+  }
+}
