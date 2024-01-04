@@ -104,11 +104,11 @@
   content: "";
   position: absolute;
   top: 90%;
-  right: 50px;
+  right: 30px;
   border-width: 10px;
   border-style: solid;
   border-color: transparent transparent transparent #f39b4e;
-  rotate: 225deg;
+  rotate: 0deg;
 }
 @media screen and (max-width: 1400px) {
   .home {

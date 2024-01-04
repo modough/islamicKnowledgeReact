@@ -9,18 +9,20 @@ const ChapterPage = () => {
     const data = fetchDb(name)
     const { hadiths } = data;
     const chapterHadiths = hadiths.filter(hadith => hadith.chapterId === parseInt(id));
+    console.log(parseInt(id))
+    console.log(chapterHadiths)
     const chapterHadithsLength = chapterHadiths.length;
-    const [clicked, setClicked] = useState(hadiths[0]);
+    const [clicked, setClicked] = useState(chapterHadiths[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const scrollRight = () => {
         if (currentIndex + 1 >= chapterHadithsLength) {
             setCurrentIndex(0);
-            setClicked(hadiths[0]);
+            setClicked(chapterHadiths[0]);
             return;
         }
-        const nextHadith = hadiths.filter((elmt) => {
-            return hadiths.indexOf(elmt) === currentIndex + 1;
+        const nextHadith = chapterHadiths.filter((elmt) => {
+            return chapterHadiths.indexOf(elmt) === currentIndex + 1;
         })
         console.log(nextHadith[0])
         setCurrentIndex(currentIndex + 1);
@@ -29,12 +31,12 @@ const ChapterPage = () => {
     const scrollLeft = () => {
         if (currentIndex === 0) {
             setCurrentIndex(chapterHadithsLength - 1);
-            setClicked(hadiths[chapterHadithsLength - 1]);
-            console.log(hadiths[chapterHadithsLength - 1])
+            setClicked(chapterHadiths[chapterHadithsLength - 1]);
+            console.log(chapterHadiths[chapterHadithsLength - 1])
             return;
         }
-        const prevHadith = hadiths.filter((elmt) => {
-            return hadiths.indexOf(elmt) === currentIndex - 1;
+        const prevHadith = chapterHadiths.filter((elmt) => {
+            return chapterHadiths.indexOf(elmt) === currentIndex - 1;
         })
         console.log(prevHadith[0])
         setCurrentIndex(currentIndex - 1);
