@@ -4,6 +4,7 @@ import Select from '../../components/select/Select';
 import LoadingPage from '../loadingPage/LoadingPage';
 
 
+
 const QuranPage = ({ quranData,
     setSurahNumber,
     surahNumber,
@@ -12,6 +13,7 @@ const QuranPage = ({ quranData,
     setQuranAudio
 }) => {
     let array = [];
+
     const verse = quranData?.verses && Object.keys(quranData?.verses).map(key => {
         return quranData?.verses[key]
     })
@@ -22,6 +24,7 @@ const QuranPage = ({ quranData,
             return { text, audio, index }
         });
     }
+
     return (
         !quranData && !quranAudio ? <LoadingPage /> :
             <section className='quranPage bg flex flex-col justify-center bg-logo '>
@@ -57,12 +60,12 @@ const QuranPage = ({ quranData,
                                         <p className=''>
                                             Bismillahi rahmani rahim
                                         </p>
+
                                     </td>
                                 </tr>
                             )
                         )}
                         {array?.map((item) => {
-
                             return <tr key={item.index} className='relative flex w-auto '>
                                 <td className="line-number flex items-center justify-center border absolute">{item.audio.numberInSurah}</td>
                                 <td className='texts'>
@@ -70,10 +73,8 @@ const QuranPage = ({ quranData,
                                     <p className='bold'>{item.text.translation_eng}</p>
                                     <p className=''>{item.text.transliteration}</p>
                                     <audio
-                                        kind="captions"
-
-                                        key={item.audio.number}
                                         className='audio'
+                                        kind='captions'
                                         src={item.audio.audio || item.audio.audioSecondary}
                                         controls
                                     />

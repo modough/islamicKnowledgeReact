@@ -43,6 +43,7 @@ function App() {
   const handleSearch = () => {
     fetchQuranByWord(word, setData);
   }
+
   return (
     <Router>
       <Header />

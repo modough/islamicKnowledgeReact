@@ -1,18 +1,10 @@
-import { API_KEY, SECRET_HADITH_HOST, SECRET_QURAN_HOST, URL, URL_AUDIO, URL_QURAN } from "../key";
-
 const localHost = "http://localhost:8080";
 
 export const fetchQuranApi = async (surahNumber, setQuranData) => {
-    const url = `${URL_QURAN}/${surahNumber}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': API_KEY,
-            'X-RapidAPI-Host': SECRET_QURAN_HOST
-        }
-    };
+    const url = `${localHost}/surah/${surahNumber}`;
+
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         const result = await response.json();
         setQuranData(result)
     } catch (error) {
@@ -21,12 +13,10 @@ export const fetchQuranApi = async (surahNumber, setQuranData) => {
 
 };
 export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
-    const url = `${URL_AUDIO}/${surahNumber}/ar.alafasy`;
-    const options = {
-        method: 'GET',
-    };
+    const url = `${localHost}/audio/${surahNumber}`;
+
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         const result = await response.json();
         setQuranAudio(result)
     } catch (error) {
@@ -37,16 +27,10 @@ export const fetchQuranAudioApi = async (setQuranAudio, surahNumber) => {
 
 
 export const fetchHadithsApi = async (number, setHadithData) => {
-    const url = `${URL}/hadith/${number}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': API_KEY,
-            'X-RapidAPI-Host': SECRET_HADITH_HOST
-        }
-    };
+    const url = `${localHost}/hadith/${number}`;
+
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         const result = await response.json();
         setHadithData(result)
     } catch (error) {
@@ -54,17 +38,11 @@ export const fetchHadithsApi = async (number, setHadithData) => {
     }
 }
 export const fetchAllHadiths = async (setAllHadithData) => {
-    const url = `${URL}/allHadith`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': API_KEY,
-            'X-RapidAPI-Host': SECRET_HADITH_HOST
-        }
-    };
+    const url = `${localHost}/hadith`;
+
 
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         const result = await response.json();
         setAllHadithData(result)
 
@@ -74,16 +52,10 @@ export const fetchAllHadiths = async (setAllHadithData) => {
 }
 
 export const fetchQuranByWord = async (word, setData) => {
-    const url = `${URL_QURAN}/corpus/${word}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': API_KEY,
-            'X-RapidAPI-Host': SECRET_QURAN_HOST
-        }
-    };
+    const url = `${localHost}/quran/${word}`;
+
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         const result = await response.json();
         setData(result)
     } catch (error) {
@@ -100,6 +72,7 @@ export const handleChatbotSubmit = async (
     setQuestion
 ) => {
     e.preventDefault();
+    const url = `${localHost}/bot`;
     const options = {
         method: 'POST',
         body: JSON.stringify({ question, threadId }),
@@ -108,7 +81,7 @@ export const handleChatbotSubmit = async (
         }
     }
     try {
-        const response = await fetch(`${localHost}/bot`, options)
+        const response = await fetch(url, options)
         const result = await response.json();
         setData(result.data)
         setThreadId(result.threadId)
@@ -133,13 +106,13 @@ export const handleCloseThread = async (threadId, setThreadId, setData) => {
 };
 
 
-export const fetchBookByName = async (name, setData) => {
-    const url = `http://localhost:8080/book/${name}`;
+export const fetchBookByName = async (name, setBookData) => {
+    const url = `${localHost}/book/${name}`;
 
     try {
         const response = await fetch(url);
         const result = await response.json();
-        setData(result)
+        setBookData(result)
     } catch (error) {
         console.error(error);
     }

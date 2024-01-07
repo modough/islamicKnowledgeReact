@@ -4,8 +4,10 @@ import arrow from '../../assets/arrow.svg';
 import { useState } from 'react';
 import ChapterTitle from '../../components/chapterTitle/ChapterTitle';
 import { fetchDb } from '../../data/fetchJson';
+import { useNavigate } from 'react-router-dom';
 
 const BookComponent = () => {
+    const navigate = useNavigate();
     const { name } = useParams()
     const data = fetchDb(name)
     const { hadiths } = data;
@@ -43,7 +45,8 @@ const BookComponent = () => {
     }
 
     return (
-        <section className='book  bg'>
+        <section className='book bg'>
+            <button className='button' type="text" onClick={() => navigate(-1)}>Return</button>
             {data && data.hadiths.length <= 42 &&
                 <div
                     key={clicked.id}

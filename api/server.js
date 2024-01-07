@@ -5,6 +5,7 @@ import { teachBot } from './controllers/teachBotControllers.js';
 import { quranAudio, quranBySurah, quranByWord } from './controllers/quranControllers.js';
 import { closeThread } from './closeThread.js';
 import { allHadiths, hadithByNumber } from './controllers/hadithControllers.js';
+import { booksData } from './controllers/bookControllers.js';
 
 const app = express();
 app.use(express.json());
@@ -17,6 +18,7 @@ app.get('/quran/:word', quranByWord)
 app.get('/audio/:surahNumber', quranAudio);
 app.get('/hadith/:hadithNumber', hadithByNumber)
 app.get('/hadith', allHadiths)
+app.get('/book/name', booksData);
 
 const PORT = 8080;
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

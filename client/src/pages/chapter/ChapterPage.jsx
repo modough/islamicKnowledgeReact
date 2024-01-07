@@ -3,14 +3,14 @@ import { useParams } from 'react-router-dom';
 import { fetchDb } from '../../data/fetchJson';
 import { useState } from 'react';
 import arrow from '../../assets/arrow.svg';
+import { useNavigate } from 'react-router-dom';
 
 const ChapterPage = () => {
+    const navigate = useNavigate();
     const { name, id } = useParams()
     const data = fetchDb(name)
     const { hadiths } = data;
     const chapterHadiths = hadiths.filter(hadith => hadith.chapterId === parseInt(id));
-    console.log(parseInt(id))
-    console.log(chapterHadiths)
     const chapterHadithsLength = chapterHadiths.length;
     const [clicked, setClicked] = useState(chapterHadiths[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,6 +45,7 @@ const ChapterPage = () => {
 
     return (
         <section className='chapterPage bg' >
+            <button className='button' type="text" onClick={() => navigate(-1)}>Return</button>
             <div
                 key={clicked.id}
                 className='chapterPage-container flex items-center w-auto '

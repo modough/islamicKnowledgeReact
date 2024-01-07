@@ -3,7 +3,6 @@ import './hadithPage.css'
 import PropTypes from 'prop-types'
 import LoadingPage from '../loadingPage/LoadingPage';
 import BookCard from '../../components/bookCard/BookCard';
-
 import { hadithBooks } from '../../data/hadithBooksList';
 import { Link } from 'react-router-dom';
 
