@@ -1,4 +1,4 @@
-const localHost = "http://localhost:8080";
+const localHost = "https://islamic-knowledge-uaxg.onrender.com";
 
 export const fetchQuranApi = async (surahNumber, setQuranData) => {
     const url = `${localHost}/surah/${surahNumber}`;
