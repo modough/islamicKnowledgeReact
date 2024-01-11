@@ -1,11 +1,10 @@
 .bookCard-name {
-  width: 315px;
+  width: 200px;
   height: 55px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background: transparent;
   border: none;
   outline: none;
   color: #fff;
@@ -16,6 +15,7 @@
   font-weight: bold;
   cursor: pointer;
   text-transform: capitalize;
+  overflow: hidden;
 }
 .bookCard-name p {
   display: flex;

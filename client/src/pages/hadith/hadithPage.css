@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 100px;
+  gap: 200px;
   padding: 200px 50px;
 }
 .hadithPage-bottom-container {
@@ -15,18 +15,23 @@
 }
 .hadithPage-bottom-container .bottom-paragraph {
   position: absolute;
+  display: flex;
   flex-wrap: wrap;
-  top: -40px;
+  align-items: center;
+  justify-content: center;
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px 30px;
+  padding: 20px 30px;
   background: #1f2937;
   color: #fff;
   border: none;
   font-size: 17px;
   font-weight: bold;
   box-shadow: 5px 5px 10px #1f2937;
+  width: 50%;
   z-index: 1;
+  opacity: 0.9;
 }
 .hadith-container {
   max-width: 1200px;
@@ -35,7 +40,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 50px;
+  padding: 100px 50px 50px 50px;
   background-color: var(--light-orange);
   box-shadow: 5px 5px 5px #1f2937;
   opacity: 0.9;
@@ -65,10 +70,11 @@
 
 .hadithPage .load {
   position: absolute;
-  top: -20px;
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px 30px;
+  width: 50%;
+  padding: 20px 30px;
   background: #1f2937;
   color: #fff;
   border: none;
@@ -85,7 +91,7 @@
 @media screen and (max-width: 400px) {
   .hadithPage {
     padding: 250px 0 0 0;
-    gap: 50px;
+    gap: 100px;
   }
   .hadith-container {
     padding: 20px;
@@ -94,6 +100,14 @@
   .hadithPage .load {
     position: unset;
     transform: none;
+    width: 100%;
+  }
+  .hadithPage-bottom-container .bottom-paragraph {
+    width: 100%;
+    box-shadow: none;
+  }
+  .books-container.p-300 {
+    padding-top: 50px;
   }
 }
 @media screen and (max-width: 250px) {

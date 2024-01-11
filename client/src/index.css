@@ -33,6 +33,14 @@ h4 {
 .none {
   display: none;
 }
+.return-button {
+  position: absolute;
+  left: 50px;
+  top: 150px;
+  background-color: lightgrey;
+  opacity: 0.9;
+  cursor: pointer;
+}
 @media screen and (min-width: 1645px) {
   .p-1600 {
     padding: 380px 50px;

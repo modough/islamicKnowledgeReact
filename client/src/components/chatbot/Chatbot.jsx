@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './chatbot.css';
 import PropTypes from 'prop-types'
 import logo from '../../assets/logo.png';
-import user from '../../assets/user.jpg';
+import user from '../../assets/user-round.svg';
 import close from '../../assets/Close.svg';
 import { handleChatbotSubmit, handleCloseThread } from '../../data/fetchApi';
 
@@ -13,9 +13,7 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
     const handleQuestion = (e) => {
         setQuestion(e.target.value);
     };
-
     return (
-
         <>
             {show &&
                 <section className="chatbot">
@@ -103,7 +101,6 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                     </div>
                 </section>}
             <div className='bg-blur'>
-
             </div>
             <div className='chatbot-button'>
                 {!show && <img

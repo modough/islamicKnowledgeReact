@@ -2,6 +2,7 @@ import './chapterPage.css';
 import { useParams } from 'react-router-dom';
 import { fetchDb } from '../../data/fetchJson';
 import { useState } from 'react';
+import returnSvg from '../../assets/return-round.svg';
 import arrow from '../../assets/arrow.svg';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +25,6 @@ const ChapterPage = () => {
         const nextHadith = chapterHadiths.filter((elmt) => {
             return chapterHadiths.indexOf(elmt) === currentIndex + 1;
         })
-        console.log(nextHadith[0])
         setCurrentIndex(currentIndex + 1);
         setClicked(nextHadith[0]);
     }
@@ -45,7 +45,7 @@ const ChapterPage = () => {
 
     return (
         <section className='chapterPage bg' >
-            <button className='button' type="text" onClick={() => navigate(-1)}>Return</button>
+            <div className='return-btn-div'><img src={returnSvg} alt="" className='return-btn' onClick={() => navigate(-1)} width={50} /></div>
             <div
                 key={clicked.id}
                 className='chapterPage-container flex items-center w-auto '

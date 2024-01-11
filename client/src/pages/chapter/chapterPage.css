@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   gap: 100px;
-  padding: 150px 50px;
+  padding: 200px 350px;
 }
 .chapterPage-container {
   max-width: 1200px;
@@ -20,7 +20,16 @@
   box-shadow: 5px 5px 5px #1f2937;
   opacity: 0.9;
 }
-
+@media screen and (max-width: 1300px) {
+  .chapterPage {
+    padding: 200px 50px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .chapterPage {
+    padding: 200px 0;
+  }
+}
 @media screen and (max-width: 600px) {
   .chapterPage-container {
     padding: 10px;
@@ -28,6 +37,7 @@
 }
 @media screen and (max-width: 400px) {
   .chapterPage {
-    padding: 250px 0 0 0;
+    padding: 150px 0 0 0;
+    gap: 20px;
   }
 }

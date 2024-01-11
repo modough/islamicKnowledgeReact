@@ -36,7 +36,7 @@ const QuranPage = ({ quranData,
                 />
                 <div className='quranIntro flex flex-col items-center justify-center '>
                     <div className='quran-title flex flex-col items-center justify-center fs-400'>
-                        <h3 className='text-xl font-bold'>
+                        <h3 className='text-lg font-bold'>
                             {`${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
                         </h3>
                         <h4>{`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}</h4>

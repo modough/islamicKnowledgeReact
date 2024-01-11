@@ -10,19 +10,23 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
             <section className="home bg">
                 <h2 className="title">Welcome to Islamic Knowledge</h2>
                 <div className="hadith p-400">
-                    <h4 className='hadith-title'>{hadithData?.title}</h4>
+                    <h3 className='hadith-title'>Hadith</h3>
+                    <p className='description' style={{ fontWeight: 'bold' }}>{hadithData?.title}</p>
                     <p className='description'>{hadithData?.hadith}</p>
                     <p>{`${hadithData?.book}, Hadith: ${hadithData?.hadithNumberArabic}`}</p>
                 </div>
                 <div className="quran p-400" >
                     <div className='home-quranTitle'>
                         <h3 className='home-quranTitle-top'>
-                            {`${quranData?.id} - ${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
+                            Quran Verse
                         </h3>
-                        <h4>
-                            {`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}
-                        </h4>
                     </div>
+                    <p style={{ fontWeight: 'bold' }}>
+                        {`${quranData?.id} - ${quranData?.surah_name} - ${quranData?.translation} - ${quranData?.surah_name_ar}`}
+                    </p>
+                    <p style={{ fontWeight: 'bold' }}>
+                        {`${quranData?.total_verses} Verses - ${quranData?.type?.toUpperCase()}`}
+                    </p>
                     <p className='description'>{quranData?.description}</p>
 
                     <QuranInput setWord={setWord} word={word} handleSearch={handleSearch} />

@@ -40,3 +40,22 @@ export const allHadiths = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 };
+export const Hadiths = async (req, res) => {
+    const url = 'https://hadiths-api.p.rapidapi.com/collections'
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Host': 'hadiths-api.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        res.status(200).json(data);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};

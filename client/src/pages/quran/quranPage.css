@@ -1,5 +1,5 @@
 .quranPage {
-  gap: 100px;
+  gap: 200px;
   padding: 150px 350px;
   align-items: center;
 }
@@ -16,8 +16,12 @@
 .quran-title {
   position: absolute;
   top: -30px;
-  width: 80%;
+  width: 50%;
   box-shadow: 5px 5px 10px #1f2937;
+}
+.quran-title h3,
+.quran-title h4 {
+  font-size: 15px;
 }
 .first.texts {
   width: 100%;
@@ -28,9 +32,8 @@
   align-items: center;
   flex-direction: column;
   color: #fff;
-
   background: #1f2937;
-  padding: 20px;
+  padding: 10px;
 }
 .flex {
   display: flex;

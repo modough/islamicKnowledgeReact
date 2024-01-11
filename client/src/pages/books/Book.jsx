@@ -1,13 +1,17 @@
 import './book.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import arrow from '../../assets/arrow.svg';
+import returnSvg from '../../assets/return-round.svg';
+
 import { useState } from 'react';
 import ChapterTitle from '../../components/chapterTitle/ChapterTitle';
 import { fetchDb } from '../../data/fetchJson';
-import { useNavigate } from 'react-router-dom';
+
+
 
 const BookComponent = () => {
     const navigate = useNavigate();
+
     const { name } = useParams()
     const data = fetchDb(name)
     const { hadiths } = data;
@@ -46,7 +50,7 @@ const BookComponent = () => {
 
     return (
         <section className='book bg'>
-            <button className='button' type="text" onClick={() => navigate(-1)}>Return</button>
+            <div className='return-btn-div'><img src={returnSvg} alt='' className='return-btn' width={50} onClick={() => navigate(-1)} /></div>
             {data && data.hadiths.length <= 42 &&
                 <div
                     key={clicked.id}

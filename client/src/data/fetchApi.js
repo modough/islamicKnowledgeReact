@@ -1,4 +1,5 @@
-const localHost = "https://islamic-knowledge-uaxg.onrender.com";
+const webHost = "https://islamic-knowledge-uaxg.onrender.com";
+const localHost = "http://localhost:8080";
 
 export const fetchQuranApi = async (surahNumber, setQuranData) => {
     const url = `${localHost}/surah/${surahNumber}`;
@@ -39,8 +40,6 @@ export const fetchHadithsApi = async (number, setHadithData) => {
 }
 export const fetchAllHadiths = async (setAllHadithData) => {
     const url = `${localHost}/hadith`;
-
-
     try {
         const response = await fetch(url);
         const result = await response.json();
@@ -106,14 +105,3 @@ export const handleCloseThread = async (threadId, setThreadId, setData) => {
 };
 
 
-export const fetchBookByName = async (name, setBookData) => {
-    const url = `${localHost}/book/${name}`;
-
-    try {
-        const response = await fetch(url);
-        const result = await response.json();
-        setBookData(result)
-    } catch (error) {
-        console.error(error);
-    }
-};
