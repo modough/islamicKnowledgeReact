@@ -21,7 +21,7 @@ const HadithPage = ({ allHadithData }) => {
                     {sliceArray?.map((elmt) => {
                         return (
                             <div key={elmt.id} className='hadith-container p-300' >
-                                <button className='fs-400 load' onClick={loadCard}>Click to load another one !</button>
+                                <button className='fs-400 load' onClick={loadCard}>Click to load another hadith !</button>
                                 <h3 className='text-2xl font-bold'>{elmt.title}</h3>
                                 <p>{elmt.hadith}</p>
                                 <p className='font-bold'>{`${elmt.book}, Number: ${elmt.hadithNumberArabic}`}</p>
@@ -30,7 +30,7 @@ const HadithPage = ({ allHadithData }) => {
                 </div>
                 <div className='hadithPage-bottom'>
                     <div className='hadithPage-bottom-container'>
-                        <p className='bottom-paragraph fs-400'>List of Books</p>
+                        <p className='bottom-paragraph fs-400'>List of hadith Books</p>
                         <div className='books-container p-300'>
                             {hadithBooks.map((book) => {
                                 return (

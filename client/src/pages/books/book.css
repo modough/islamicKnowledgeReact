@@ -48,14 +48,7 @@
   margin: 0;
 }
 p.slider-container-title {
-  padding: 10px 30px;
-  background: #1f2937;
-  color: #fff;
-  border: none;
-
   font-weight: bold;
-  box-shadow: 5px 5px 10px #1f2937;
-  z-index: 1;
 }
 p.reference {
   font-size: 17px;
@@ -88,6 +81,7 @@ p.reference {
 }
 .return-btn {
   background-color: lightgrey;
+  cursor: pointer;
 }
 .chapterTitle-sectionDiv {
   max-width: 1200px;
@@ -98,8 +92,7 @@ p.reference {
   align-items: center;
   justify-content: center;
   gap: 30px;
-
-  padding: 100px;
+  padding: 50px;
   background-color: var(--light-orange);
   box-shadow: 5px 5px 5px #1f2937;
   opacity: 0.9;
@@ -116,7 +109,6 @@ p.reference {
   font-size: 17px;
   font-weight: bold;
   box-shadow: 5px 5px 10px #1f2937;
-  cursor: pointer;
 }
 .chapterTitle-container {
   display: flex;

@@ -1,4 +1,4 @@
-import './App.css'
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
 import { useEffect, useState } from 'react'
@@ -33,7 +33,7 @@ function App() {
   const [hideToast, setHideToast] = useState(false);
   setTimeout(() => {
     setToast(true)
-  }, 5000);
+  }, 10000);
   useEffect(() => {
     fetchHadithsApi(number, setHadithData)
     fetchQuranApi(surahNumber, setQuranData)

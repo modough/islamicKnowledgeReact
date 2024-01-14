@@ -14,7 +14,7 @@ const BookComponent = () => {
 
     const { name } = useParams()
     const data = fetchDb(name)
-    const { hadiths } = data;
+    const { hadiths, chapters } = data;
     const hadithsLength = hadiths.length;
     const [clicked, setClicked] = useState(hadiths[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,6 +56,9 @@ const BookComponent = () => {
                     key={clicked.id}
                     className='bookHadiths-container flex items-center w-auto '
                 >
+                    <div className='chapterName'>
+                        <p>{chapters[0].english}</p>
+                    </div>
                     <div className='slider-container p-400'>
                         <p className={`${clicked.english.narrator === "" ? "" : 'slider-container-title fs-400'}`}>
                             {clicked.english.narrator}

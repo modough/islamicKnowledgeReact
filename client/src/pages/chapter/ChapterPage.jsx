@@ -1,17 +1,21 @@
 import './chapterPage.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchDb } from '../../data/fetchJson';
 import { useState } from 'react';
 import returnSvg from '../../assets/return-round.svg';
 import arrow from '../../assets/arrow.svg';
-import { useNavigate } from 'react-router-dom';
+
 
 const ChapterPage = () => {
     const navigate = useNavigate();
     const { name, id } = useParams()
     const data = fetchDb(name)
-    const { hadiths } = data;
+    const { hadiths, chapters } = data;
+
+    const chapterName = chapters.filter(chapter => chapter.id === parseInt(id))
+    console.log(chapterName[0].english)
     const chapterHadiths = hadiths.filter(hadith => hadith.chapterId === parseInt(id));
+
     const chapterHadithsLength = chapterHadiths.length;
     const [clicked, setClicked] = useState(chapterHadiths[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,6 +55,9 @@ const ChapterPage = () => {
                 className='chapterPage-container flex items-center w-auto '
 
             >
+                <div className='chapterName'>
+                    <p>{chapterName[0].english}</p>
+                </div>
                 <div className='slider-container p-400'>
                     <p className={`${clicked.english.narrator === "" ? "" : 'slider-container-title fs-400'}`}>
                         {clicked.english.narrator}

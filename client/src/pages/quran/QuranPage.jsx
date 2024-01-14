@@ -3,8 +3,6 @@ import './quranPage.css'
 import Select from '../../components/select/Select';
 import LoadingPage from '../loadingPage/LoadingPage';
 
-
-
 const QuranPage = ({ quranData,
     setSurahNumber,
     surahNumber,
@@ -26,7 +24,9 @@ const QuranPage = ({ quranData,
     }
 
     return (
-        !quranData && !quranAudio ? <LoadingPage /> :
+        !quranData &&
+            !quranAudio ?
+            <LoadingPage /> :
             <section className='quranPage bg flex flex-col justify-center bg-logo '>
                 <Select
                     setSurahNumber={setSurahNumber}
@@ -60,7 +60,6 @@ const QuranPage = ({ quranData,
                                         <p className=''>
                                             Bismillahi rahmani rahim
                                         </p>
-
                                     </td>
                                 </tr>
                             )
@@ -74,10 +73,13 @@ const QuranPage = ({ quranData,
                                     <p className=''>{item.text.transliteration}</p>
                                     <audio
                                         className='audio'
-                                        kind='captions'
                                         src={item.audio.audio || item.audio.audioSecondary}
                                         controls
-                                    />
+                                    >
+                                        <track
+                                            kind='captions'
+                                        />
+                                    </audio>
                                 </td>
                             </tr>
                         })}

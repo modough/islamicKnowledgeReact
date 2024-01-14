@@ -25,7 +25,6 @@ const AutoPlayerList = ({ audioFiles, className }) => {
         return null;
     }
     return (
-
         <audio
             className={className}
             kind='captions'

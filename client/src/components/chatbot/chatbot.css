@@ -144,16 +144,28 @@
   background-color: #f39b4e;
   z-index: 10;
 }
+.chat-toast::before {
+  content: "";
+  position: absolute;
+  top: 80%;
+  right: 50px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #f39b4e;
+  rotate: -135deg;
+}
 .chat-toast p {
+  margin: 0;
   font-size: 15px;
 }
 .toast-close {
+  font-size: 10px;
   position: absolute;
   font-weight: bold;
   right: 5px;
   top: 5px;
   background-color: #fff;
-  padding: 0 5px;
+  padding: 1px 4px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -167,6 +179,10 @@
     right: 0;
   }
   img.chat {
+    right: 30px;
+  }
+  .chat-toast::before {
+    rotate: -45deg;
     right: 30px;
   }
 }

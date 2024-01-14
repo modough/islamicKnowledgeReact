@@ -1,0 +1,17 @@
+.skeletonDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 100px;
+  padding-top: 100px;
+}
+
+@media screen and (max-width: 400px) {
+  .skeletonDiv {
+    gap: 20px;
+  }
+  .skeletonDiv svg {
+    viewport-fit: ;
+  }
+}

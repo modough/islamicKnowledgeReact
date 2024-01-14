@@ -6,7 +6,7 @@ const LoadingPage = () => {
     return (
         <section className='loadingPage'>
             <div className="loadingBackground">
-                <img src={loaderImg} alt='loader image' />
+                <img src={loaderImg} alt='loader img' />
             </div>
         </section>
     )
