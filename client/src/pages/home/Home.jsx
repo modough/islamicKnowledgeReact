@@ -4,10 +4,10 @@ import QuranInput from '../../components/quranInput/QuranInput'
 import LoadingPage from '../loadingPage/LoadingPage';
 import Highlighter from "react-highlight-words";
 
-const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
+const Home = ({ show, hadithData, quranData, data, word, setWord, handleSearch }) => {
     return (
         !hadithData && !quranData && !data ? <LoadingPage /> :
-            <section className="home bg">
+            <section className={`home bg ${show && "stop-scroll"}`}>
                 <h2 className="title">Welcome to Islamic Knowledge</h2>
                 <div className="hadith p-400">
                     <h3 className='hadith-title'>Hadith</h3>
@@ -52,6 +52,7 @@ const Home = ({ hadithData, quranData, data, word, setWord, handleSearch }) => {
     )
 }
 Home.propTypes = {
+    show: PropTypes.bool,
     hadithData: PropTypes.object,
     quranData: PropTypes.object,
     data: PropTypes.array,

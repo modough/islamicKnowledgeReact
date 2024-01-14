@@ -51,6 +51,7 @@ function App() {
         <Route
           path='/'
           element={<Home
+            show={show}
             quranData={quranData}
             hadithData={hadithData}
             data={data} word={word}
@@ -61,6 +62,7 @@ function App() {
         <Route
           path='/quran'
           element={<QuranPage
+            show={show}
             quranData={quranData}
             setSurahNumber={setSurahNumber}
             surahNumber={surahNumber}
@@ -69,9 +71,9 @@ function App() {
             setQuranAudio={setQuranAudio}
           />}
         />
-        <Route path='/hadith' element={<HadithPage allHadithData={allHadithData} />} />
-        <Route path='/hadith/:name' element={<BookComponent />} />
-        <Route path='/hadith/:name/:id' element={<ChapterPage />} />
+        <Route path='/hadith' element={<HadithPage show={show} allHadithData={allHadithData} />} />
+        <Route path='/hadith/:name' element={<BookComponent show={show} />} />
+        <Route path='/hadith/:name/:id' element={<ChapterPage show={show} />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Chatbot

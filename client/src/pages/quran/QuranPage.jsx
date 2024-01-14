@@ -3,7 +3,9 @@ import './quranPage.css'
 import Select from '../../components/select/Select';
 import LoadingPage from '../loadingPage/LoadingPage';
 
-const QuranPage = ({ quranData,
+const QuranPage = ({
+    show,
+    quranData,
     setSurahNumber,
     surahNumber,
     setQuranData,
@@ -27,7 +29,7 @@ const QuranPage = ({ quranData,
         !quranData &&
             !quranAudio ?
             <LoadingPage /> :
-            <section className='quranPage bg flex flex-col justify-center bg-logo '>
+            <section className={`quranPage bg flex flex-col justify-center bg-logo ${show && "stop-scroll"}`} >
                 <Select
                     setSurahNumber={setSurahNumber}
                     surahNumber={surahNumber}
@@ -89,6 +91,7 @@ const QuranPage = ({ quranData,
     )
 }
 QuranPage.propTypes = {
+    show: PropTypes.bool,
     quranData: PropTypes.object,
     setSurahNumber: PropTypes.func,
     surahNumber: PropTypes.number,

@@ -100,15 +100,16 @@ const Chatbot = ({ setShow, show, setHideToast, hideToast, toast }) => {
                         </form>
                     </div>
                 </section>}
-            <div className='bg-blur'>
-            </div>
+            {show &&
+                <div className='bg-blur'>
+                </div>
+            }
             <div className='chatbot-button'>
                 {!show && <img
                     width={50}
                     className='chat'
                     src={logo}
                     onClick={() => {
-
                         setShow(!show)
                         setHideToast(true)
                     }}

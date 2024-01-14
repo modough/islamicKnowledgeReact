@@ -7,7 +7,7 @@ import { hadithBooks } from '../../data/hadithBooksList';
 import { Link } from 'react-router-dom';
 
 
-const HadithPage = ({ allHadithData }) => {
+const HadithPage = ({ allHadithData, show }) => {
     const [numOfCard, setNumOfCard] = useState(1)
     const sliceArray = allHadithData?.data?.slice(0, numOfCard)
     const loadCard = () => {
@@ -16,7 +16,7 @@ const HadithPage = ({ allHadithData }) => {
 
     return (
         !sliceArray ? <LoadingPage /> :
-            <section className='hadithPage bg '>
+            <section className={`hadithPage bg ${show && "stop-scroll"}`}>
                 <div className='hadithPage-top'>
                     {sliceArray?.map((elmt) => {
                         return (
@@ -50,6 +50,7 @@ const HadithPage = ({ allHadithData }) => {
     )
 }
 HadithPage.propTypes = {
+    show: PropTypes.bool,
     allHadithData: PropTypes.object,
     collectionData: PropTypes.object,
 }
